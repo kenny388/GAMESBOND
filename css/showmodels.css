@@ -1,0 +1,173 @@
+body {
+  color: rgba(255, 255, 255, 1);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-left: 20%;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+}
+
+.column {}
+
+#rightColumn {
+  /* margin-left: 1%; */
+}
+
+table, th, td {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.header td {
+  font-weight: bold;
+}
+
+span {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 1);
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0.5em 0;
+  padding: 0;
+}
+
+.innerRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.innerColumn {
+  width: 33.3%;
+}
+
+input[type="submit"] {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  width: 100%;
+  color: rgba(90, 140, 140, 1);
+  font-size: 1em;
+  padding: 0.7em;
+  border-radius: 0.2em;
+}
+
+a {
+  color: rgba(200, 200, 255, 0.5);
+}
+
+a:hover {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+}
+
+.recipe {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* height: 10em; */
+  background-color: rgba(255, 255, 255, 0);
+  /* border: 1px dashed #000000; */
+  border-radius: 10px;
+  /* margin-bottom: 0.5em; */
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.oneRow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.5em;
+}
+
+.leftBox {
+  width: 59%;
+  margin-right: 1%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: rgba(255, 255, 255, 0.5); */
+}
+
+.rightBox {
+  width: 39%;
+  margin-left: 1%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: rgba(255, 255, 255, 0.5); */
+}
+
+.verticalList {
+  display: flex;
+  flex-direction: column;
+}
+
+.eachVerticalBox {
+  /* background-color: rgba(244, 236, 188, 0.8); */
+  width: 80%;
+  margin-left: 10%;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+  margin-bottom: 0.2em;
+  padding-left: 5%;
+}
+
+.eachVerticalBox p {
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.titleBox {
+  width: 98%;
+  margin-left: 2%;
+  /* height: 27%; */
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.descriptionBox {
+  width: 98%;
+  margin-left: 2%;
+  /* height: 67%; */
+  /* background-color: rgba(255, 255, 255, 0.5); */
+}
+
+.fiftyfiftyBox {
+  width: 100%;
+  /* background-color: rgba(255, 255, 255, 0.5); */
+  display: flex;
+  flex-direction: row;
+}
+
+.servingsLevelBox {
+  width: 98%;
+  margin-left: 2%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: row;
+}
+
+.innerLeftBox {
+  width: 30%;
+}
+
+.innerRightBox {
+  width: 70%;
+}
+
+.message {
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 0.5em;
+  border-color: rgba(255, 255, 255, 0.5);
+  padding: 1em;
+  margin-top: 1em;
+}
