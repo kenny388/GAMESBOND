@@ -147,6 +147,31 @@ a:hover {
   flex-direction: row;
 }
 
+.GamesContainer {
+  display: flex;
+  flex-direction: row;
+  /* width: 60%; */
+  /* margin-left: 20%; */
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.gameEntry {
+  width: 23%;
+  margin-bottom: 1em;
+}
+
+.gameImages {
+  width: 100%;
+  height: 16em;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.gameGenre {
+  color: rgba(255, 255, 255, 0.4);
+}
+
 .servingsLevelBox {
   width: 98%;
   margin-left: 2%;

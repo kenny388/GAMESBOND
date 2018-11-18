@@ -164,7 +164,7 @@
         // echo "<h4>SQL Query</h4>";
         // echo $query;
 
-        $query = "SELECT * FROM games";
+        $query = 'SELECT * FROM covers JOIN mytable ON mytable.FIELD1 = covers.FIELD1 ORDER BY `mytable`.`score` DESC';
 
       }
       ?>
@@ -203,43 +203,23 @@
             // echo "<h2>Result</h2>";
             echo "<br>";
           echo "</div>";
-          echo '<table class="table">';
 
-          //Giving the first row as table headers
-          echo '<tr class="header">';
-          //   if (isset($_POST['chkProductName'])) echo "<td>Model Name</td>";
-          //   if (isset($_POST['chkProductCategory'])) echo "<td>Category</td>";
-          //   if (isset($_POST['chkProductScale'])) echo "<td>Scale</td>";
-          //   if (isset($_POST['chkProductVendor'])) echo "<td>Vendor</td>";
-          //   if (isset($_POST['chkProductDescription'])) echo "<td>Model Description</td>";
-          //   if (isset($_POST['chkProductBuyPrice'])) echo "<td>Price</td>";
-          //   echo "<td>Detail Information</td>";
-                  echo '<td>Game Name</td>';
-          echo '</tr>';
 
+          echo '<div class="GamesContainer">';
 
           //Each Loop of fetching data
         while ($row = @mysqli_fetch_assoc($result)) {
 
-          //Make a new table row
-          echo "<tr>";
 
-          //For each field, if checkBox checked, display the fields
-          // if (isset($_POST['chkProductName'])) echo "<td>".$row["productName"]."</td>";
-          // if (isset($_POST['chkProductCategory'])) echo "<td>".$row["productLine"]."</td>";
-          // if (isset($_POST['chkProductScale'])) echo "<td>".$row["productScale"]."</td>";
-          // if (isset($_POST['chkProductVendor'])) echo "<td>".$row["productVendor"]."</td>";
-          // if (isset($_POST['chkProductDescription'])) echo "<td>".$row["productDescription"]."</td>";
-          echo "<td>".$row["title"]."</td>";
-          //Give a button for further information
-          // echo "<td>";
-          // echo '<a class="detailButton" href="modeldetails.php?productName=';
-          // echo $row["productName"];
-          // echo'"><label>Detail</label></a>';
-          // echo "</td>";
-          // echo "</tr>";
+          echo "<tr>";
+          echo '<div class="gameEntry">';
+          echo '<div class="gameImages" style="background-image:url(' . $row["images"] . ')"></div>';
+          echo '<div class="gameNames">' . $row["title"] . '</div>';
+          echo '<div class="gameGenre">' . $row["genre"] . '</div>';
+          echo '</div>';
         }
-        echo "</table>";
+
+        echo '</div>';
         }
       }
       ?>
