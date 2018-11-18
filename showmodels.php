@@ -135,34 +135,36 @@
       if(isset($_POST['submit']) && count($errors) == 0){
 
         //Start the curry(query, sorry, I am super hungry when coding this) with SELECT
-        $temp = "SELECT ";
+        // $temp = "SELECT ";
 
         //If the checkboxes are checked, add an extra part behind the query statement
-        $temp .= "products.productName, ";
-        if (isset($_POST['chkProductCategory'])) $temp .= "products.productLine, ";
-        if (isset($_POST['chkProductScale'])) $temp .= "products.productScale, ";
-        if (isset($_POST['chkProductVendor'])) $temp .= "products.productVendor, ";
-        if (isset($_POST['chkProductDescription'])) $temp .= "products.productDescription, ";
-        if (isset($_POST['chkProductBuyPrice'])) $temp .= "products.buyPrice, ";
+        // $temp .= "products.productName, ";
+        // if (isset($_POST['chkProductCategory'])) $temp .= "products.productLine, ";
+        // if (isset($_POST['chkProductScale'])) $temp .= "products.productScale, ";
+        // if (isset($_POST['chkProductVendor'])) $temp .= "products.productVendor, ";
+        // if (isset($_POST['chkProductDescription'])) $temp .= "products.productDescription, ";
+        // if (isset($_POST['chkProductBuyPrice'])) $temp .= "products.buyPrice, ";
 
         //Used substr to limit the length of the string, from 0 (start) to -2 (2 digits before the end), therefore the , " at the end is gone
-        $query = substr($temp, 0, -2);
+        // $query = substr($temp, 0, -2);
         //Add back the space at the end
-        $query .= " ";
+        // $query .= " ";
 
         //Continue to add the next parts FROM
-        $query .= "FROM products ";
+        // $query .= "FROM products ";
 
         //Starting Last Part of the Query - WHERE Clause
         //If either of the data was filled, that specify order number and date, add the WHERE statement
-        if (isset($_POST['modelName']) && !empty($_POST['modelName'])) {
-          $query .= "WHERE ";
-          $query .= "products.productName LIKE '%$modelName%'";
-        }
+        // if (isset($_POST['modelName']) && !empty($_POST['modelName'])) {
+        //   $query .= "WHERE ";
+        //   $query .= "products.productName LIKE '%$modelName%'";
+        // }
 
         //Finally, echo the query out
         // echo "<h4>SQL Query</h4>";
         // echo $query;
+
+        $query = "SELECT * FROM games";
 
       }
       ?>
@@ -205,14 +207,16 @@
 
           //Giving the first row as table headers
           echo '<tr class="header">';
-            if (isset($_POST['chkProductName'])) echo "<td>Model Name</td>";
-            if (isset($_POST['chkProductCategory'])) echo "<td>Category</td>";
-            if (isset($_POST['chkProductScale'])) echo "<td>Scale</td>";
-            if (isset($_POST['chkProductVendor'])) echo "<td>Vendor</td>";
-            if (isset($_POST['chkProductDescription'])) echo "<td>Model Description</td>";
-            if (isset($_POST['chkProductBuyPrice'])) echo "<td>Price</td>";
-            echo "<td>Detail Information</td>";
+          //   if (isset($_POST['chkProductName'])) echo "<td>Model Name</td>";
+          //   if (isset($_POST['chkProductCategory'])) echo "<td>Category</td>";
+          //   if (isset($_POST['chkProductScale'])) echo "<td>Scale</td>";
+          //   if (isset($_POST['chkProductVendor'])) echo "<td>Vendor</td>";
+          //   if (isset($_POST['chkProductDescription'])) echo "<td>Model Description</td>";
+          //   if (isset($_POST['chkProductBuyPrice'])) echo "<td>Price</td>";
+          //   echo "<td>Detail Information</td>";
+                  echo '<td>Game Name</td>';
           echo '</tr>';
+
 
           //Each Loop of fetching data
         while ($row = @mysqli_fetch_assoc($result)) {
@@ -221,19 +225,19 @@
           echo "<tr>";
 
           //For each field, if checkBox checked, display the fields
-          if (isset($_POST['chkProductName'])) echo "<td>".$row["productName"]."</td>";
-          if (isset($_POST['chkProductCategory'])) echo "<td>".$row["productLine"]."</td>";
-          if (isset($_POST['chkProductScale'])) echo "<td>".$row["productScale"]."</td>";
-          if (isset($_POST['chkProductVendor'])) echo "<td>".$row["productVendor"]."</td>";
-          if (isset($_POST['chkProductDescription'])) echo "<td>".$row["productDescription"]."</td>";
-          if (isset($_POST['chkProductBuyPrice'])) echo "<td>".$row["buyPrice"]."</td>";
+          // if (isset($_POST['chkProductName'])) echo "<td>".$row["productName"]."</td>";
+          // if (isset($_POST['chkProductCategory'])) echo "<td>".$row["productLine"]."</td>";
+          // if (isset($_POST['chkProductScale'])) echo "<td>".$row["productScale"]."</td>";
+          // if (isset($_POST['chkProductVendor'])) echo "<td>".$row["productVendor"]."</td>";
+          // if (isset($_POST['chkProductDescription'])) echo "<td>".$row["productDescription"]."</td>";
+          echo "<td>".$row["title"]."</td>";
           //Give a button for further information
-          echo "<td>";
-          echo '<a class="detailButton" href="modeldetails.php?productName=';
-          echo $row["productName"];
-          echo'"><label>Detail</label></a>';
-          echo "</td>";
-          echo "</tr>";
+          // echo "<td>";
+          // echo '<a class="detailButton" href="modeldetails.php?productName=';
+          // echo $row["productName"];
+          // echo'"><label>Detail</label></a>';
+          // echo "</td>";
+          // echo "</tr>";
         }
         echo "</table>";
         }

@@ -2,5 +2,5 @@
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
-$dbname = "kycheung_newdatabase";
+$dbname = "IGN";
 ?>
