@@ -212,10 +212,15 @@
 
               <div class="comments">
 
+
+                <?php
+                if (isset($rate_db2)) {
+                ?>
                 <div class="featuredTitle">
                     <h3>REVIEWS</h3>
                     <hr>
                 </div>
+
                 <?php
                 foreach ($rate_db2 as $singleRating) {
                   // echo print_r($singleRating);
@@ -248,7 +253,8 @@
 
 
                 <?php
-                    }
+              }
+            }
                 ?>
 
               </div>
