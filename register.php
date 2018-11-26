@@ -19,6 +19,8 @@
     include 'initialize.php';
 
           include 'sideBar.php';
+          echo '</div>';
+          echo '</div>';
 
     include 'registerCode.php';
 

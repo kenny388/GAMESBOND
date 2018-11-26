@@ -22,7 +22,8 @@
 
     //Include SideBar:
     include 'sideBar.php';
-
+    echo '</div>';
+    echo '</div>';
 
     // Error array that might get populated if there is error
     $errors = array();

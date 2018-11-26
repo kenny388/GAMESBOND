@@ -21,6 +21,8 @@
 
 
       include 'sideBar.php';
+      echo '</div>';
+      echo '</div>';
 
 
 

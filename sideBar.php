@@ -12,7 +12,3 @@
 
       <div class="navElement"><a href="showmodels.php">PROFILE</a></div>
   </div>
-
-
-</div>
-</div>

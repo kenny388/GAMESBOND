@@ -1,0 +1,333 @@
+body {
+  color: rgba(0, 0, 0, 1);
+  /* background-color: rgba(14, 14, 44, 1); */
+}
+
+h3 {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+.everything {
+  display: flex;
+  /* min-height: 100vh; */
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  margin-left: 0%;
+}
+
+.mainBar {
+  position: relative;
+  width: 47%;
+  float: left;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 5%;
+  margin-top: 3em;
+  position: relative;
+  /* background-color: rgba(255, 0, 0, 0.5); */
+}
+
+.center {
+  position: absolute;
+  top: 11em;
+  left: 0em;
+  float: left;
+  width: 100%;
+  height: 25em;
+  overflow: hidden;
+  /*will change this to hidden later to deny scolling to user*/
+  white-space: nowrap;
+}
+
+.internal {
+  width: 70%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+}
+
+.internal0 {
+  width: 14.5%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  display: inline-block;
+}
+
+.internal1 {
+  width: 70%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  /* background-image: url("img/ac.jpg"); */
+  display: inline-block;
+}
+
+.internal1 img {
+  width: 100%;
+  height: 100%;
+  /* height: auto; */
+}
+
+#leftButton {
+  position: absolute;
+  width: 5em;
+  height: 8em;
+  top: 30em;
+  left: 2em;
+  z-index: 999;
+}
+
+#rightButton {
+  position: absolute;
+  width: 5em;
+  height: 8em;
+  top: 30em;
+  right: 2em;
+  z-index: 999;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.mainSearchBar {
+  width: 50%;
+}
+
+.column {
+  display: flex;
+  flex-direction: row;
+  vertical-align: center;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+}
+
+.secondaryNavElement {
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 0.6em;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+#rightColumn {
+  /* margin-left: 1%; */
+}
+
+.spaceForPanel {
+  width: 100%;
+  height: 29em;
+}
+
+table, th, td {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.header td {
+  font-weight: bold;
+}
+
+span {
+  font-size: 0.8em;
+  color: rgba(0, 0, 0, 1);
+}
+
+hr {
+  display: block;
+  height: 1px;
+  width: 100%;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0.5em 0;
+  padding: 0;
+}
+
+.mainPanel {
+  width: 100%;
+  height: 29em;
+  background-color: rgba(14, 14, 44, 1);
+  display: flex;
+  flex-direction: row;
+  margin-top: 3em;
+}
+
+.cover {
+  height: 100%;
+  width: auto;
+  background-size: cover;
+  position: relative;
+  float: left;
+}
+
+.cover img {
+  height: 100%;
+  width: auto;
+}
+
+.info {
+  height: 100%;
+  width: auto;
+  flex: 1;
+  padding: 1em 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.titleBox {
+  width: 100%;
+  color: rgba(255, 255, 255, 1);
+  font-size: 2em;
+}
+
+.smallInfoBox {
+  width: 100%;
+  color: rgba(255, 255, 255, 1);
+}
+
+.smallInfoBox label {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.smallInfoBox p {
+  font-size: 1.1em;
+  color: rgba(255, 255, 255, 1);
+}
+
+.ratingBox {
+  background-color: rgba(255, 255, 255, 1);
+  /* width: 70%; */
+  /* margin-top: 8%; */
+  /* padding-bottom: 70%; */
+  background-image: linear-gradient(to bottom right, rgba(114, 22, 43, 1), rgba(114, 22, 43, 1) 50%, rgba(40, 40, 70, 1) 50%, rgba(40, 40, 70, 1));
+  /* border-bottom: 2px solid rgba(0, 170, 171, 0.5);
+  border-right: 2px solid rgba(0, 170, 171, 0.5); */
+  border-radius: 0.5em;
+  border: 1px dotted rgba(255, 255, 255, 1);
+  /* max-width: 30em;
+  max-height: 10em; */
+  width: 10vw;
+  height: 10vw;
+  overflow: hidden;
+  /* justify-content: space-between; */
+  color: rgba(255, 255, 255, 1);
+}
+
+.upperBox {
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+}
+
+.lowerBox {
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+}
+
+.leftBox {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.rightBox {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.leftBox label {
+  font-size: 0.7em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+.rightBox label {
+  font-size: 0.7em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+.leftBox p {
+  font-size: 2em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  line-height: 80%;
+}
+
+.rightBox p {
+  font-size: 2em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  line-height: 80%;
+}
+
+/* .upperBox {
+  position: absolute;
+  margin-top: 1%;
+  margin-left: 1%;
+  color: rgba(255, 255, 255, 1);
+}
+
+.upperBox label {
+  font-size: 0.7em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+.upperBox p {
+  font-size: 2.5em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  line-height: 80%;
+}
+
+.lowerBox {
+  position: relative;
+  color: rgba(255, 255, 255, 1);
+  margin-top: 5vw;
+  margin-left: 4em;
+}
+
+.lowerBox label {
+  font-size: 0.7em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+.lowerBox p {
+  font-size: 2.5em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  line-height: 80%;
+} */
+/*
+.gameInfo {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.gameImage {
+  width: 100%;
+  height: auto;
+}
+
+.gameImage img {
+  width: 100%;
+  height: auto;
+} */
