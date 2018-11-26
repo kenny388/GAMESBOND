@@ -497,6 +497,12 @@ input[type="submit"] {
   margin-bottom: 2.2em;
 }
 
+.actualTitle {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 0.6em;
+}
+
 .blackLine {
   width: 1px;
   background-color: rgba(0, 0, 0, 0.3);

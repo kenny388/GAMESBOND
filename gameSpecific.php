@@ -133,6 +133,43 @@
               </div>
 
               <?php
+              include 'private/db_credentials.php';
+              $connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+              if(mysqli_connect_errno()) {
+                $msg = "Database connection failed: ";
+                $msg .= mysqli_connect_error();
+                $msg .= " (" . mysqli_connect_errno() . ")";
+                exit($msg);
+              }
+                  $result = $connection->query("SELECT * FROM rating WHERE game_id = '$gameCode'");
+                      while($data = mysqli_fetch_assoc($result)){
+                            $rate_db[] = $data;
+                            $sum_rates[] = $data['user_rating'];
+                        }
+                        if(@count($rate_db)){
+                            $rate_times = count($rate_db);
+                            $sum_rates = array_sum($sum_rates);
+                            $rate_value = $sum_rates/$rate_times;
+                            $rate_bg = (($rate_value)/5)*100;
+                        }else{
+                            $rate_times = 0;
+                            $rate_value = 0;
+                            $rate_bg = 0;
+                        }
+
+
+                    $result2 = $connection->query("SELECT * FROM rating JOIN users ON rating.user_id = users.email WHERE game_id = '$gameCode'");
+                        while($data2 = mysqli_fetch_assoc($result2)){
+                              $rate_db2[] = $data2;
+
+                          }
+
+                        $connection->close();
+                        $result->free_result();
+                        $result2->free_result();
+                ?>
+
+              <?php
               if (isset($_SESSION['loggedIn'])) {
                 ?>
 
@@ -155,41 +192,6 @@
                   <div id="10" class="btn-10 rate-btn"></div>
               	</div>
                 <div class="box-result">
-                  <?php
-                  include 'private/db_credentials.php';
-                  $connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-                  if(mysqli_connect_errno()) {
-                    $msg = "Database connection failed: ";
-                    $msg .= mysqli_connect_error();
-                    $msg .= " (" . mysqli_connect_errno() . ")";
-                    exit($msg);
-                  }
-                      $result = $connection->query("SELECT * FROM rating WHERE game_id = '$gameCode'");
-                          while($data = mysqli_fetch_assoc($result)){
-                                $rate_db[] = $data;
-                                $sum_rates[] = $data['user_rating'];
-                            }
-                            if(@count($rate_db)){
-                                $rate_times = count($rate_db);
-                                $sum_rates = array_sum($sum_rates);
-                                $rate_value = $sum_rates/$rate_times;
-                                $rate_bg = (($rate_value)/5)*100;
-                            }else{
-                                $rate_times = 0;
-                                $rate_value = 0;
-                                $rate_bg = 0;
-                            }
-
-
-                        $result2 = $connection->query("SELECT * FROM rating JOIN users ON rating.user_id = users.email WHERE game_id = '$gameCode'");
-                            while($data2 = mysqli_fetch_assoc($result2)){
-                                  $rate_db2[] = $data2;
-                              }
-
-                            $connection->close();
-                            $result->free_result();
-                            $result2->free_result();
-                    ?>
                     <p style="margin:5px 0px; font-size:16px; text-align:center">Rated <strong><?php echo substr($rate_value,0,3); ?></strong> out of <?php echo $rate_times; ?> Review(s)</p>
                 </div>
 
@@ -216,13 +218,13 @@
                 </div>
                 <?php
                 foreach ($rate_db2 as $singleRating) {
-                  echo print_r($singleRating);
+                  // echo print_r($singleRating);
                 ?>
 
                 <div class="commentEntry">
                   <div class="userPanel">
                     <div class="userName">
-                      <h3>Kenny Cheung</h3>
+                      <h3><?php echo $singleRating['first_name'] . " " . $singleRating['last_name']; ?></h3>
                     </div>
                     <div class="profilePic">
                       <img src="img/KirbySquare.png"></img>
@@ -232,11 +234,15 @@
                   </div>
                   <div class="contentPanel">
                     <div class="timeStamp">
-                      <p>2018 . 21 . 24. 2 1. 2.4</p>
+                      <p><?php echo $singleRating['time']; ?></p>
+                    </div>
+                    <div class="actualTitle">
+                      <p><?php echo $singleRating['comment_title'] ?></p>
                     </div>
                     <div class="actualContent">
-                      <p>This is my paragraph </p>
+                      <p><?php echo $singleRating['user_comment'] ?></p>
                     </div>
+
                   </div>
                 </div>
 
