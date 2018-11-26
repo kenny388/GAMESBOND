@@ -77,11 +77,6 @@ body {
   top: 30em;
   left: 2em;
   z-index: 999;
-  border-style: none;
-  background-color: none;
-  width: 100px;
-  height: 150px;
-  background-image: url(img/back.png);
 }
 
 #rightButton {

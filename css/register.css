@@ -1,59 +1,72 @@
+/* bg image: https://www.forbes.com/sites/erikkain/2018/01/11/dark-souls-remastered-is-more-than-just-a-new-coat-of-paint/#2323e3a82124 */
 .container {
   width: 100%;
   /* height: 100vh; */
   /* background-color: rgba(0, 0, 0, 0.5); */
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
+  /* Background Image Used: extracted from https://www.xmple.com/wallpaper/gradient-linear-grey-blue--c2-2f4f4f-afeeee-a-45-f-14-image/ */
 }
 
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin: 0.5em 0;
-  padding: 0;
+.everything {
+  /* display: flex; */
+  min-height: 100vh;
+  /* flex-direction: row; */
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin-left: 0%;
 }
 
-h3 {
-  margin-left: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-label {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.8em;
-  margin-left: 1em;
-}
-
-a {
-  text-decoration: none;
-}
-
-a * {
-  cursor: pointer;
-}
-
-li {
-  color: rgba(255, 255, 255, 0.6);
+.mainBar {
+  position: relative;
+  width: 64%;
+  min-height: 100vh;
+  float: left;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  /* background-image: url('../img/xboxController.jpg'); */
+  background:
+    /* top, transparent red, faked with gradient */
+    linear-gradient(rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.6)),
+    /* bottom, image */
+    url('../img/dks2.jpg');
+  background-size: cover;
+  overflow: scroll;
 }
 
 .box {
-  width: 40%;
-  margin-left: 30%;
-  /* background-color: rgba(0, 0, 0, 0.05); */
-  margin-top: 1em;
-  border-radius: 1em;
-  padding: 5em;
-  /* text-align: center; */
+  width: 50%;
+  /* margin-left: 25%; */
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 1.5em;
+  padding-right: 3em;
+  background-color: rgba(14, 14, 44, 1);
+  /* border: 1px solid rgba(0, 0, 0, 0.1); */
+  /* border-top-right-radius: 2em;
+  border-bottom-right-radius: 2em; */
+  /* margin-top: 13em; */
+  min-height: 100vh;
+}
+
+.box * {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  l
+}
+
+.box label {
+  color: rgba(255, 255, 255, 1);
 }
 
 input[type="text"] {
-  border: none;
-  background-color: rgba(0, 0, 0, 0);
-  padding: 1em;
+  padding: 1em 0em;
   font-size: 0.9em;
   width: 100%;
+  border-bottom: 2px solid rgba(0, 210, 211, 1);
+  background-color: rgba(14, 14, 44, 1);
   color: rgba(255, 255, 255, 1);
 }
 
@@ -63,10 +76,11 @@ input[type="text"]::placeholder {
 
 input[type="password"] {
   border: none;
-  background-color: rgba(0, 0, 0, 0);
-  padding: 1em;
+  padding: 1em 0em;
   font-size: 0.9em;
   width: 100%;
+  border-bottom: 2px solid rgba(0, 210, 211, 1);
+  background-color: rgba(14, 14, 44, 1);
   color: rgba(255, 255, 255, 1);
 }
 
@@ -75,11 +89,51 @@ input[type="password"]::placeholder {
 }
 
 input[type="submit"] {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(35, 187, 188, 1);
+  color: rgba(255, 255, 255, 1);
   border: none;
   width: 100%;
-  color: rgba(119, 168, 168, 1);
   font-size: 1em;
   padding: 0.5em;
   border-radius: 0.2em;
+}
+
+#registerLink {
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+}
+
+.box a {
+  text-decoration: none;
+}
+
+.errorMsg {
+  font-size: 0.8em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.errors li {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+.errors {
+  margin-top: 0em;
+  margin-bottom: 1em;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.errors label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.errors ul {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+h3 {
+  color: rgba(255, 255, 255, 1);
 }

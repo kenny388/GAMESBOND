@@ -5,7 +5,7 @@
     <title>Show Models</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/shareAll.css">
-    <link rel="stylesheet" href="css/showmodels.css">
+    <link rel="stylesheet" href="css/games.css">
     <link rel="stylesheet" href="css/sideBar.css">
 <script data-require="jquery" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
@@ -22,7 +22,6 @@
 
     //Include SideBar:
     include 'sideBar.php';
-    echo "<div class='blueBackground'></div>";
 
 
     // Error array that might get populated if there is error
@@ -91,11 +90,9 @@
           <br>
         </div>
 
+
+
         <hr>
-
-
-        <div class="spaceForPanel">
-        </div>
 
         <!-- Submit Button -->
         <!-- <input class="button" type="submit" name="submit" value="Refine Search"/> -->
@@ -103,118 +100,22 @@
         <!-- End Of Form -->
       </form>
 
-      <div class="featuredTitle">
-          <h3>Highest Rating</h3>
-          <hr>
-      </div>
 
-      <div class="section">
-      <div class="gameSection">
+
         <?php
-        include 'gamesQueryFunctions.php';
-        loadStaffPick();
+        include 'browseGame.php';
         ?>
-      </div>
-      <div class="moreButton">
-        <a href="games.php">BROWSE MORE</a>
-      </div>
-    </div>
 
-    <div class="featuredTitle">
-        <h3>Staff Pick</h3>
-        <hr>
-    </div>
 
-        <div class="section">
-        <div class="gameSection">
-          <?php
-          loadTopScore();
-          ?>
-        </div>
-        <div class="moreButton">
-          <a href="games.php">BROWSE MORE</a>
-        </div>
-      </div>
 
-      <div class="featuredTitle">
-          <h3>NEWS</h3>
-          <hr>
-      </div>
 
-      <div class="news">
-        <div class="newsEntry">
-          <div class="newsPic"><img src="img/wnb.jpg"/></div>
-          <div class="newsContent">
-            <div class="newsTitle"><h3>Mad Max, Lego Dimensions help Warner Bros. revenue and profit rise</h3>
-            </div>
-            <div class="newsParagraph">
-              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
-            </div>
-            <div class="newsUser">
-              <div class="userName"><p>John Oliver</p></div>
-              <div class="timeStamp"><p>10 Hours Ago</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="news">
-        <div class="newsEntry">
-          <div class="newsPic"><img src="img/dks.jpeg"/></div>
-          <div class="newsContent">
-            <div class="newsTitle"><h3>Dark Souls 3 and Dark Souls Remaster help FromSoftware. Revenue and profit rise</h3>
-            </div>
-            <div class="newsParagraph">
-              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
-            </div>
-            <div class="newsUser">
-              <div class="userName"><p>John Oliver</p></div>
-              <div class="timeStamp"><p>10 Hours Ago</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
 
     </div>
   </div>
 
 
 </div>
-
-
-
-      <button id="leftButton"><</button>
-      <button id="rightButton">></button>
-     <div class="center" id="content">
-       <div class="internal0">
-       </div>
-      <div class="internal1">
-        <img src="img/acBlackTint.png"/>
-      </div>
-       <div class="internal">
-      </div>
-       <div class="internal">
-      </div>
-      <div class="internal">
-     </div>
-     <div class="internal">
-     </div>
-     <div class="internal">
-     </div>
-     <div class="internal">
-     </div>
-     <div class="internal">
-     </div>
-     <div class="internal">
-     </div>
-     <div class="internal">
-     </div>
-     <div class="internal">
-     </div>
-     </div>
-
-
-
 
      <script data-require="jquery" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="script.js"></script>

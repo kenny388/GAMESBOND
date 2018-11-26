@@ -17,7 +17,7 @@ if (is_post_request()) {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
     $password_repeat = $_POST['password_repeat'] ?? '';
-    $hashed_password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     if (!empty($firstName)) {
         $_SESSION['firstName'] = $firstName;
@@ -62,11 +62,11 @@ if (is_post_request()) {
         $errors['acc'] = "You have already registered, please try logging in";
         } else {
         //Import into Database
-        $query = "INSERT INTO users (firstName, lastName, email, password) VALUES ('{$firstName}', '{$lastName}', '{$email}', '{$hashed_password}')";
+        $query = "INSERT INTO users (first_name, last_name, email, password) VALUES ('{$firstName}', '{$lastName}', '{$email}', '{$hashed_password}')";
         $db->query($query);
         $db->close();
         //Switch to https
-        header("Location: https://" . $_SERVER["HTTP_HOST"] . "/kycheung/A4/IAT352-A4/login.php");
+        header("Location: https://" . $_SERVER["HTTP_HOST"] . "/kycheung/GAMESBOND/GAMESBOND/login.php");
         exit();
       }
     }
@@ -74,8 +74,7 @@ if (is_post_request()) {
 ?>
 
 <?php $page_title = 'Register'; ?>
-
-<div id="content">
+  <div class="mainBar">
   <div class="container">
     <div class="box">
 
@@ -84,29 +83,30 @@ if (is_post_request()) {
   <h3>Register As a User</h3>
 
   <!-- Submit the form back the this page with https -->
-  <form action="<?php echo 'https://' . $_SERVER["HTTP_HOST"] . '/kycheung/A4/IAT352-A4/register.php'; ?>" method="post">
+  <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
 
     <hr>
     <label>FIRST NAME</label>
     <br />
     <input type="text" name="firstName" placeholder="Your First Name" value="<?php echo h($firstName); ?>" />
     <br />
-    <hr>
+    <br />
+
     <label>LAST NAME</label>
     <br />
     <input type="text" name="lastName" placeholder="Your Last Name" value="<?php echo h($lastName); ?>" />
     <br />
-    <hr>
+    <br />
     <label>EMAIL ADDRESS</label>
       <br />
     <input type="text" name="email" placeholder="emailaddress@mail.com" value="<?php echo h($email); ?>" />
     <br />
-    <hr>
+    <br />
     <label>PASSWORD</label>
     <br />
     <input type="password" placeholder="password" name="password" value="" />
     <br />
-    <hr />
+    <br />
     <label>REPEAT PASSWORD</label>
     <br />
     <input type="password" placeholder="Repeat password" name="password_repeat" value="" />
