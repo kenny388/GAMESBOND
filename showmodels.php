@@ -79,12 +79,28 @@
             <div class="secondaryNavElement">
               <a>RECOMMENDATION</a>
             </div>
-              <div class="secondaryNavElement">
-                              <a>ACTIVITY</a>
-                </div>
-                <div class="secondaryNavElement">
-                                <a>Hi, Kenny</a>
-                  </div>
+            <div class="secondaryNavElement">
+              <a>ACTIVITY</a>
+            </div>
+            <?php
+
+            if (isset($_SESSION['loggedIn'])) {
+            echo '<div class="secondaryNavElement">';
+              echo '<a href="logOut.php">LOGOUT</a>';
+            echo '</div>';
+            echo '<div class="secondaryNavElement">';
+              echo '<a href="#">Hi, ';
+              echo $_SESSION['firstName'];
+              echo '</a>';
+            echo '</div>';
+            } else {
+              echo '<div class="secondaryNavElement">';
+                echo '<a href="https://' . $_SERVER["HTTP_HOST"] . '/kycheung/GAMESBOND/GAMESBOND/login.php">LOGIN</a>';
+              echo '</div>';
+            }
+
+
+            ?>
 
 
 
@@ -184,8 +200,8 @@
 
 
 
-      <button id="leftButton"><</button>
-      <button id="rightButton">></button>
+      <button id="leftButton"></button>
+      <button id="rightButton"></button>
      <div class="center" id="content">
        <div class="internal0">
        </div>

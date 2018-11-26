@@ -52,7 +52,7 @@ body {
 .internal0 {
   width: 14.5%;
   height: 100%;
-  /* background-color: rgba(0, 0, 0, 0.5); */
+  background-color: rgba(0, 0, 0, 0.3);
   display: inline-block;
 }
 
@@ -75,13 +75,13 @@ body {
   width: 5em;
   height: 8em;
   top: 30em;
-  left: 2em;
+  left: 22em;
   z-index: 999;
-  border-style: none;
-  background-color: none;
-  width: 100px;
-  height: 150px;
-  background-image: url(img/back.png);
+  background-image: url("../img/back.png");
+  background-color: rgba(0, 0, 0, 0);
+  background-size: cover;
+  background-position: center;
+  border: none;
 }
 
 #rightButton {
@@ -89,8 +89,13 @@ body {
   width: 5em;
   height: 8em;
   top: 30em;
-  right: 2em;
+  right: 22em;
   z-index: 999;
+  background-image: url("../img/next.png");
+  background-color: rgba(0, 0, 0, 0);
+  background-size: cover;
+  background-position: center;
+  border: none;
 }
 
 .row {
@@ -100,7 +105,7 @@ body {
 }
 
 .mainSearchBar {
-  width: 50%;
+  width: 45%;
 }
 
 .column {
@@ -118,8 +123,9 @@ body {
   font-weight: bold;
 }
 
-#rightColumn {
-  /* margin-left: 1%; */
+.secondaryNavElement a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .spaceForPanel {

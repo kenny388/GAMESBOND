@@ -4,11 +4,21 @@
     <h2>GAMESBOND</h2>
   </div>
   <div class="nav">
-      <div class="navElement"><a href="showmodels.php">HOME</a></div>
+      <div class="navElement"><a href= "http://<?php echo $_SERVER["HTTP_HOST"]; ?>/kycheung/GAMESBOND/GAMESBOND/showmodels.php">HOME</a></div>
 
-      <div class="navElement"><a href="showmodels.php">NEWS</a></div>
+      <div class="navElement"><a href= "http://<?php echo $_SERVER["HTTP_HOST"]; ?>/kycheung/GAMESBOND/GAMESBOND/showmodels.php">NEWS</a></div>
 
-      <div class="navElement"><a href="games.php">GAMES</a></div>
+      <div class="navElement"><a href= "http://<?php echo $_SERVER["HTTP_HOST"]; ?>/kycheung/GAMESBOND/GAMESBOND/games.php">GAMES</a></div>
+      <?php
+      if (!isset($_SESSION['loggedIn'])) {
+        echo '<div class="navElement"><a href= "https://';
+        echo $_SERVER["HTTP_HOST"];
+        echo '/kycheung/GAMESBOND/GAMESBOND/login.php">PROFILE</a></div>';
+      } else {
+        echo '<div class="navElement"><a href= "http://';
+        echo $_SERVER["HTTP_HOST"];
+        echo '/kycheung/GAMESBOND/GAMESBOND/showmodels.php">PROFILE</a></div>';
+      }
+      ?>
 
-      <div class="navElement"><a href="showmodels.php">PROFILE</a></div>
   </div>

@@ -79,8 +79,8 @@
 
               <div class="mainPanel">
 
-                  <div class="cover" style="background-image:url(' <?php echo $retrievedImage; ?> ')">
-                  <img src=" <?php echo $retrievedImage; ?> "></img>
+                  <div class="cover">
+                  <img src=" <?php echo $retrievedImage; ?> " alt=""></img>
                 </div>
                 <div class="info">
                   <div class="titleBox">

@@ -46,6 +46,7 @@ if(mysqli_connect_errno()) {
     // echo '<div class="gameGenre">' . $row["genre"] . '</div>';
     // echo '</div>';
     // echo 'gameDiscovered';
+    $retrievedID = $row['FIELD1'];
     $retrievedName = $row['title'];
     $retrievedImage = $row['images'];
     $retrievedGenre = $row['genre'];
