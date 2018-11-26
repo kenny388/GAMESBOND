@@ -353,7 +353,7 @@ hr {
 
 .ratingSystem {
   /* margin-top: 1em; */
-  margin-bottom: 1em;
+  margin-bottom: 4em;
 }
 
 .rate {
@@ -410,6 +410,7 @@ textarea {
   border-radius: 4px;
   background-color: #f8f8f8;
   resize: none;
+  font-size: 1em;
 }
 
 input[type="submit"] {
@@ -420,4 +421,21 @@ input[type="submit"] {
   font-size: 1em;
   padding: 0.5em;
   border-radius: 0.2em;
+}
+
+.commentSystem {
+  display: none;
+}
+
+.commentSystem form {
+  margin-bottom: 1em;
+}
+
+#msg {
+  width: 100%;
+  font-size: 1em;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 188, 189, 1);
+  display: none;
 }

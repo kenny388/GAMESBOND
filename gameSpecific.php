@@ -179,11 +179,13 @@
                     <p style="margin:5px 0px; font-size:16px; text-align:center">Rated <strong><?php echo substr($rate_value,0,3); ?></strong> out of <?php echo $rate_times; ?> Review(s)</p>
                 </div>
 
-                <div class="commentSystem">
+                <div class="commentSystem" id="commentSystem">
                   <form action="commentAjax.php" method="post">
-                  <textarea></textarea>
-                  <input type="submit" id="submitButton" value="submit" name="submit">
+                  <textarea id="commentContent" placeholder="Write your review"></textarea>
+                  <input type="submit" id="submitButton" value="SUBMIT" name="submit">
                 </form>
+
+                <span id="msg"></span>
                 </div>
               </div>
 
@@ -204,6 +206,7 @@ $(function(){
        };
      });
 
+
    $('.rate-btn').click(function(){
       var therate = $(this).attr('id');
       var dataRate = 'act=rate&game_id=<?php echo $gameCode; ?>&user_rating='+therate+'&user_id=<?php echo $_SESSION['email'];?>'; //
@@ -218,9 +221,35 @@ $(function(){
       data: dataRate,
       success:function(data){
         document.getElementById("collective_score").innerHTML = parseFloat(data).toFixed(1);
+        document.getElementById("commentSystem").style.display = "block";
 			}
     });
   });
+
+  // $('#submitButton').click(function(event){
+    $('#submitButton').click(function(event) {
+    event.preventDefault();
+     var comment = $('#commentContent').val();
+     var dataRate = 'act=comment&game_id=<?php echo $gameCode; ?>&user_comment='+comment+'&user_id=<?php echo $_SESSION['email'];?>'; //
+      $.ajax({
+         type : "POST",
+         url : "commentAjax.php",
+         data: dataRate,
+         success:function(data){
+           var msg = data;
+           $("#msg").html(data);
+           document.getElementById("msg").style.display = "block";
+           document.getElementById("submitButton").style.display = "none";
+           document.getElementById("commentContent").readOnly = true;
+
+            $("#msg").fadeOut(2000, function() {
+              $(this).html("");
+                document.getElementById("msg").style.display = "none";
+            })
+         }
+       });
+     });
+
 });
 
 $( document ).ready(function() {
