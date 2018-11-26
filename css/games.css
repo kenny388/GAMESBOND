@@ -113,6 +113,11 @@ body {
   font-weight: bold;
 }
 
+.secondaryNavElement a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.5);
+}
+
 #rightColumn {
   /* margin-left: 1%; */
 }

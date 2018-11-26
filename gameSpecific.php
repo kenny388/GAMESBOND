@@ -65,9 +65,22 @@
               <div class="secondaryNavElement">
                               <a>ACTIVITY</a>
                 </div>
-                <div class="secondaryNavElement">
-                                <a>Hi, Kenny</a>
-                  </div>
+                <?php
+                if (isset($_SESSION['loggedIn'])) {
+                echo '<div class="secondaryNavElement">';
+                  echo '<a href="logOut.php">LOGOUT</a>';
+                echo '</div>';
+                echo '<div class="secondaryNavElement">';
+                  echo '<a href="#">Hi, ';
+                  echo $_SESSION['firstName'];
+                  echo '</a>';
+                echo '</div>';
+                } else {
+                  echo '<div class="secondaryNavElement">';
+                    echo '<a href="https://' . $_SERVER["HTTP_HOST"] . '/kycheung/GAMESBOND/GAMESBOND/login.php">LOGIN</a>';
+                  echo '</div>';
+                }
+                ?>
 
 
 
@@ -84,7 +97,7 @@
                 </div>
                 <div class="info">
                   <div class="titleBox">
-                    <h3><?php echo $retrievedName; ?></h3>
+                    <h3><?php echo strtoupper($retrievedName); ?></h3>
                   </div>
                   <div class="smallInfoBox">
                     <label>Date of release</label>

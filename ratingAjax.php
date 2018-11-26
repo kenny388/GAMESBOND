@@ -30,11 +30,11 @@ $db = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
         $rate_times = count($rate_db2);
         $sum_rates = array_sum($sum_rates);
         $rate_value = $sum_rates/$rate_times;
-        echo $rate_value;
-
+        echo $rate_value;      
       } else {
         $rate_times = 0;
-        $rate_value = 0;
+        $rate_value = "N/A";
+        echo $rate_value;
       }
     }
 $db->close();

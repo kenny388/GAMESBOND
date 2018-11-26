@@ -83,7 +83,6 @@
               <a>ACTIVITY</a>
             </div>
             <?php
-
             if (isset($_SESSION['loggedIn'])) {
             echo '<div class="secondaryNavElement">';
               echo '<a href="logOut.php">LOGOUT</a>';
@@ -98,8 +97,6 @@
                 echo '<a href="https://' . $_SERVER["HTTP_HOST"] . '/kycheung/GAMESBOND/GAMESBOND/login.php">LOGIN</a>';
               echo '</div>';
             }
-
-
             ?>
 
 
