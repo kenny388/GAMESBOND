@@ -180,7 +180,10 @@
                 </div>
 
                 <div class="commentSystem">
+                  <form action="commentAjax.php" method="post">
                   <textarea></textarea>
+                  <input type="submit" id="submitButton" value="submit" name="submit">
+                </form>
                 </div>
               </div>
 

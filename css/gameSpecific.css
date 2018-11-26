@@ -353,6 +353,7 @@ hr {
 
 .ratingSystem {
   /* margin-top: 1em; */
+  margin-bottom: 1em;
 }
 
 .rate {
@@ -396,6 +397,10 @@ hr {
   position: absolute;
 }
 
+.box-result {
+  margin-bottom: 1em;
+}
+
 textarea {
   width: 100%;
   height: 150px;
@@ -405,4 +410,14 @@ textarea {
   border-radius: 4px;
   background-color: #f8f8f8;
   resize: none;
+}
+
+input[type="submit"] {
+  background-color: rgba(35, 187, 188, 1);
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  width: 100%;
+  font-size: 1em;
+  padding: 0.5em;
+  border-radius: 0.2em;
 }
