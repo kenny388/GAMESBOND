@@ -34,6 +34,7 @@
     url('../img/dks2.jpg');
   background-size: cover;
   overflow: scroll;
+  margin-left: 36%;
 }
 
 .box {

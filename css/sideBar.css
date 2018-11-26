@@ -11,6 +11,9 @@ h2 {
   position: relative;
   min-height: 100vh;
   height: auto;
+  position: fixed;
+  top: 0em;
+  left: 0em;
 }
 
 .content {

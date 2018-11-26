@@ -18,6 +18,7 @@ body {
   float: left;
   height: 100%;
   background-color: rgba(255, 255, 255, 1);
+  margin-left: 36%;
 }
 
 .container {
@@ -95,7 +96,7 @@ body {
 }
 
 .mainSearchBar {
-  width: 50%;
+  width: 45%;
 }
 
 .column {

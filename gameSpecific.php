@@ -176,15 +176,11 @@
                                 $rate_bg = 0;
                             }
                     ?>
-                <!-- <div class="result-container">
-                  <div class="rate-bg" style="width:
-                  <?php
-                  // echo $rate_bg;
-                  ?>
-                  %"></div>
-                    <div class="rate-stars"></div>
-                </div> -->
                     <p style="margin:5px 0px; font-size:16px; text-align:center">Rated <strong><?php echo substr($rate_value,0,3); ?></strong> out of <?php echo $rate_times; ?> Review(s)</p>
+                </div>
+
+                <div class="commentSystem">
+                  <textarea></textarea>
                 </div>
               </div>
 

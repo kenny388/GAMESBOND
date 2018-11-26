@@ -227,7 +227,13 @@
      </div>
      </div>
 
-
+<script>
+$(window).scroll(function(){
+  $(".center").css("opacity", 1 - $(window).scrollTop() / 500);
+  $("#leftButton").css("opacity", 1 - $(window).scrollTop() / 500);
+  $("#rightButton").css("opacity", 1 - $(window).scrollTop() / 500);
+});
+</script>
 
 
      <script data-require="jquery" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
