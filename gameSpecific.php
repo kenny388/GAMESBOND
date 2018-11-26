@@ -132,6 +132,10 @@
                 </div>
               </div>
 
+              <?php
+              if (isset($_SESSION['loggedIn'])) {
+                ?>
+
               <div class="featuredTitle">
                   <h3>RATE THIS GAME</h3>
                   <hr>
@@ -175,13 +179,23 @@
                                 $rate_value = 0;
                                 $rate_bg = 0;
                             }
+
+
+                        $result2 = $connection->query("SELECT * FROM rating JOIN users ON rating.user_id = users.email WHERE game_id = '$gameCode'");
+                            while($data2 = mysqli_fetch_assoc($result2)){
+                                  $rate_db2[] = $data2;
+                              }
+
+                            $connection->close();
+                            $result->free_result();
+                            $result2->free_result();
                     ?>
                     <p style="margin:5px 0px; font-size:16px; text-align:center">Rated <strong><?php echo substr($rate_value,0,3); ?></strong> out of <?php echo $rate_times; ?> Review(s)</p>
                 </div>
 
                 <div class="commentSystem" id="commentSystem">
                   <form action="commentAjax.php" method="post">
-                  <!-- <input type="text" id="commentTitle" placeholder="Review Title"></input> -->
+                  <textarea id="commentTitle" placeholder="Review Title" rows="1" cols="50"></textarea>
                   <textarea id="commentContent" placeholder="Write your review"></textarea>
                   <input type="submit" id="submitButton" value="SUBMIT" name="submit">
                 </form>
@@ -190,27 +204,46 @@
                 </div>
               </div>
 
+              <?php
+            }
+            ?>
+
               <div class="comments">
+
+                <div class="featuredTitle">
+                    <h3>REVIEWS</h3>
+                    <hr>
+                </div>
                 <?php
-                // foreach ($rate_db as $singleRating) {
-                //   echo $singleRating['user_id'];
-                // }
+                foreach ($rate_db2 as $singleRating) {
+                  echo print_r($singleRating);
                 ?>
 
                 <div class="commentEntry">
                   <div class="userPanel">
                     <div class="userName">
+                      <h3>Kenny Cheung</h3>
                     </div>
                     <div class="profilePic">
+                      <img src="img/KirbySquare.png"></img>
                     </div>
+                  </div>
+                  <div class="blackLine">
                   </div>
                   <div class="contentPanel">
                     <div class="timeStamp">
+                      <p>2018 . 21 . 24. 2 1. 2.4</p>
                     </div>
                     <div class="actualContent">
+                      <p>This is my paragraph </p>
                     </div>
                   </div>
                 </div>
+
+
+                <?php
+                    }
+                ?>
 
               </div>
 
@@ -249,11 +282,11 @@ $(function(){
     });
   });
 
-  // $('#submitButton').click(function(event){
     $('#submitButton').click(function(event) {
     event.preventDefault();
      var comment = $('#commentContent').val();
-     var dataRate = 'act=comment&game_id=<?php echo $gameCode; ?>&user_comment='+comment+'&user_id=<?php echo $_SESSION['email'];?>'; //
+     var title = $('#commentTitle').val();
+     var dataRate = 'act=comment&game_id=<?php echo $gameCode; ?>&user_comment='+comment+'&comment_title='+title+'&user_id=<?php echo $_SESSION['email'];?>'; //
       $.ajax({
          type : "POST",
          url : "commentAjax.php",

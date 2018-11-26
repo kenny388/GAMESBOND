@@ -401,7 +401,18 @@ hr {
   margin-bottom: 1em;
 }
 
-textarea {
+#commentTitle {
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+  font-size: 1em;
+}
+
+#commentContent {
   width: 100%;
   height: 150px;
   padding: 12px 20px;
@@ -441,10 +452,60 @@ input[type="submit"] {
 }
 
 .commentEntry {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(14, 14, 44, 0.07);
   width: 100%;
-  min-height: 14em;
+  /* min-height: 14em; */
   margin-bottom: 1em;
   display: flex;
   flex-direction: row;
+  padding: 1em;
 }
+
+.userPanel {
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  text-align: center;
+}
+
+.profilePic {
+  width: 100%;
+  padding-top: 1.5em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+.profilePic img {
+  width: 100%;
+  height: auto;
+}
+
+.contentPanel {
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.timeStamp {
+  font-size: 0.8em;
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 2.2em;
+}
+
+.blackLine {
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* .verticalHR {
+  border: none;
+  border-left: 1px solid hsla(200, 10%, 50%, 100);
+  height: 100vh;
+  height: 100%;
+  width: 1px;
+} */
