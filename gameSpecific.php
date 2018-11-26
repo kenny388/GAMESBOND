@@ -181,12 +181,37 @@
 
                 <div class="commentSystem" id="commentSystem">
                   <form action="commentAjax.php" method="post">
+                  <input type="text" id="commentTitle" placeholder="Review Title"></input>
                   <textarea id="commentContent" placeholder="Write your review"></textarea>
                   <input type="submit" id="submitButton" value="SUBMIT" name="submit">
                 </form>
 
                 <span id="msg"></span>
                 </div>
+              </div>
+
+              <div class="comments">
+                <?php
+                foreach ($rate_db as $singleRating) {
+                  echo $singleRating['user_id'];
+                }
+                ?>
+
+                <div class="commentEntry">
+                  <div class="userPanel">
+                    <div class="userName">
+                    </div>
+                    <div class="profilePic">
+                    </div>
+                  </div>
+                  <div class="contentPanel">
+                    <div class="timeStamp">
+                    </div>
+                    <div class="actualContent">
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
 
@@ -198,6 +223,7 @@
 </div>
 <script>
 $(function(){
+
    $('.rate-btn').hover(function(){
    $('.rate-btn').removeClass('rate-btn-hover');
       var therate = $(this).attr('id');
@@ -242,7 +268,7 @@ $(function(){
            document.getElementById("submitButton").style.display = "none";
            document.getElementById("commentContent").readOnly = true;
 
-            $("#msg").fadeOut(2000, function() {
+            $("#msg").fadeOut(3000, function() {
               $(this).html("");
                 document.getElementById("msg").style.display = "none";
             })

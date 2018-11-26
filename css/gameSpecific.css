@@ -439,3 +439,18 @@ input[type="submit"] {
   border: 1px solid rgba(0, 188, 189, 1);
   display: none;
 }
+
+.commentEntry {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  min-height: 14em;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+}
+
+#commentTitle {}
+
+.userPanel {}
+
+.controlPanel {}
