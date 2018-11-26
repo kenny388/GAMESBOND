@@ -23,13 +23,15 @@ $db = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
 
       $scoreUpdate = @mysqli_query($db, "SELECT * FROM rating WHERE game_id= '$game_id'");
       while($data2 = mysqli_fetch_assoc($scoreUpdate)) {
+        $rate_db2[] = $data2;
         $sum_rates[] = $data2['user_rating'];
       }
-      if(@count($rate_db)){
-        $rate_times = count($rate_db);
+      if(@count($rate_db2)){
+        $rate_times = count($rate_db2);
         $sum_rates = array_sum($sum_rates);
         $rate_value = $sum_rates/$rate_times;
         echo $rate_value;
+
       } else {
         $rate_times = 0;
         $rate_value = 0;
