@@ -448,9 +448,3 @@ input[type="submit"] {
   display: flex;
   flex-direction: row;
 }
-
-#commentTitle {}
-
-.userPanel {}
-
-.controlPanel {}

@@ -181,7 +181,7 @@
 
                 <div class="commentSystem" id="commentSystem">
                   <form action="commentAjax.php" method="post">
-                  <input type="text" id="commentTitle" placeholder="Review Title"></input>
+                  <!-- <input type="text" id="commentTitle" placeholder="Review Title"></input> -->
                   <textarea id="commentContent" placeholder="Write your review"></textarea>
                   <input type="submit" id="submitButton" value="SUBMIT" name="submit">
                 </form>
@@ -192,9 +192,9 @@
 
               <div class="comments">
                 <?php
-                foreach ($rate_db as $singleRating) {
-                  echo $singleRating['user_id'];
-                }
+                // foreach ($rate_db as $singleRating) {
+                //   echo $singleRating['user_id'];
+                // }
                 ?>
 
                 <div class="commentEntry">
@@ -223,7 +223,6 @@
 </div>
 <script>
 $(function(){
-
    $('.rate-btn').hover(function(){
    $('.rate-btn').removeClass('rate-btn-hover');
       var therate = $(this).attr('id');
@@ -231,11 +230,9 @@ $(function(){
    $('.btn-'+i).addClass('rate-btn-hover');
        };
      });
-
-
    $('.rate-btn').click(function(){
       var therate = $(this).attr('id');
-      var dataRate = 'act=rate&game_id=<?php echo $gameCode; ?>&user_rating='+therate+'&user_id=<?php echo $_SESSION['email'];?>'; //
+      var dataRate = 'act=rate&game_id=<?php echo $gameCode; ?>&user_rating='+therate+'&user_id=<?php echo $_SESSION['email'];?>';
    $('.rate-btn').removeClass('rate-btn-active');
       for (var i = therate; i >= 0; i--) {
    $('.btn-'+i).addClass('rate-btn-active');
