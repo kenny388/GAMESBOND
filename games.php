@@ -93,7 +93,7 @@
 
       <!-- Start Of Form -->
       <!-- Form that direct to itself -->
-      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+      <form method="post">
 
         <div class="row">
           <!-- Left Column -->
@@ -283,16 +283,6 @@
         var keyword = document.getElementById('keywordSearch').value;
         var score = document.getElementById('score').innerHTML;
 
-         // var therate = $(this).attr('id');
-         // var dataRate = 'act=rate&game_id=
-         <?php
-         // echo $gameCode;
-         ?>
-         // &user_rating='+therate+'&user_id=
-         <?php
-         // echo $_SESSION['email'];
-         ?>
-         // ';
         var data = 'keyword=' + keyword + '&score=' + score + '&chkPlatformer=' + chkPlatformer + '&chkRPG=' + chkRPG + '&chkSimulation=' + chkSimulation + '&chkAction=' + chkAction + '&chkAdventure=' + chkAdventure + '&chkShooter=' + chkShooter + '&chkSports=' + chkSports + '&chkPuzzle=' + chkPuzzle + '&chkMusic=' + chkMusic + '&chkRacing=' + chkRacing + '&chkStrategy=' + chkStrategy;
 
       $.ajax({

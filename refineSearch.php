@@ -101,6 +101,10 @@ if (strlen($keyword) != 0) {
   $query = 'SELECT * FROM games';
   if ($chkBoxUntouched == "false") {
     $query .= ' WHERE';
+  } else if ($searchBarUntouched == "false") {
+    $query .= ' WHERE';
+  } else {
+    $query .= ' WHERE';
   }
   $tempQuery = "";
   if ($chkPlatformer == "true") {
@@ -136,12 +140,30 @@ if (strlen($keyword) != 0) {
   if ($chkStrategy == "true") {
     $tempQuery .= " OR genre = 'Strategy'";
   }
-
-  $tempQuery = substr($tempQuery, 3);
+  if ($chkBoxUntouched == "false") {
+    $tempQuery = substr($tempQuery, 3);
+    $tempQuery = '(' . $tempQuery . ')';
+  }
 
   $query .= $tempQuery;
 
+  if ($searchBarUntouched == "false") {
+    if ($chkBoxUntouched == "true") {
+      $query .= " title LIKE '%" . $keyword . "%'";
+    } else {
+      $query .= " AND title LIKE '%" . $keyword . "%'";
+    }
+  }
+
+  if ($searchBarUntouched == "false" || $chkBoxUntouched == "false") {
+    $query .= " AND score >= '$score'";
+  } else {
+    $query .= " score >= '$score'";
+  }
+
   $query .= ' ORDER BY score DESC LIMIT 20';
+
+        // echo $query;
 
 //Get credentials
 include 'private/db_credentials_products.php';
