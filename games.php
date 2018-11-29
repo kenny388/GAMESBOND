@@ -200,16 +200,11 @@
       </form>
 
 
-      <div class="ajaxContent">
+      <div id="ajaxContent">
         <?php
         include 'browseGame.php';
         ?>
       </div>
-
-
-
-
-
 
     </div>
   </div>
@@ -305,7 +300,8 @@
          url : "refineSearch.php",
          data: data,
          success:function(data){
-           window.alert(data);
+           // window.alert(data);
+           document.getElementById("ajaxContent").innerHTML = data;
          }
        });
      });

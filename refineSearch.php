@@ -63,20 +63,131 @@ if (isset($_GET['chkStrategy'])) {
   $chkStrategy = false;
 }
 
-// echo $chkPlatformer;
-echo $chkPlatformer;
-echo $chkRPG;
-echo $chkSimulation;
-echo $chkAction;
-echo $chkAdventure;
-echo $chkShooter;
-echo $chkSports;
-echo $chkPuzzle;
-echo $chkMusic;
-echo $chkRacing;
-echo $chkStrategy;
+$chkBoxUntouched = true;
 
-echo $keyword;
-echo $score;
+if ($chkPlatformer == "true" || $chkRPG  == "true" || $chkMusic  == "true" || $chkPuzzle  == "true" || $chkRacing  == "true" || $chkAction  == "true" || $chkSports == "true"  || $chkShooter == "true"  || $chkStrategy == "true"  || $chkSimulation == "true"  || $chkAdventure == "true" ) {
+  $chkBoxUntouched = "false";
+} else {
+  $chkBoxUntouched = "true";
+}
+
+$searchBarUntouched = "true";
+if (strlen($keyword) != 0) {
+  $searchBarUntouched = "false";
+}
+
+// echo $chkPlatformer;
+// echo $chkRPG;
+// echo $chkSimulation;
+// echo $chkAction;
+// echo $chkAdventure;
+// echo $chkShooter;
+// echo $chkSports;
+// echo $chkPuzzle;
+// echo $chkMusic;
+// echo $chkRacing;
+// echo $chkStrategy;
+//
+// echo $keyword;
+// echo $score;
+//
+//
+// echo $chkBoxUntouched;
+// echo $searchBarUntouched;
+
+
+
+//If submission exist and no error
+  $query = 'SELECT * FROM games';
+  if ($chkBoxUntouched == "false") {
+    $query .= ' WHERE';
+  }
+  $tempQuery = "";
+  if ($chkPlatformer == "true") {
+    $tempQuery .= " OR genre = 'Platformer'";
+  }
+  if ($chkRPG == "true") {
+    $tempQuery .= " OR genre = 'RPG'";
+  }
+  if ($chkSimulation == "true") {
+    $tempQuery .= " OR genre = 'Simulation'";
+  }
+  if ($chkAction == "true") {
+    $tempQuery .= " OR genre = 'Action'";
+  }
+  if ($chkAdventure == "true") {
+    $tempQuery .= " OR genre = 'Adventure'";
+  }
+  if ($chkShooter == "true") {
+    $tempQuery .= " OR genre = 'Shooter'";
+  }
+  if ($chkSports == "true") {
+    $tempQuery .= " OR genre = 'Sports'";
+  }
+  if ($chkPuzzle == "true") {
+    $tempQuery .= " OR genre = 'Puzzle'";
+  }
+  if ($chkMusic == "true") {
+    $tempQuery .= " OR genre = 'Music'";
+  }
+  if ($chkRacing == "true") {
+    $tempQuery .= " OR genre = 'Racing'";
+  }
+  if ($chkStrategy == "true") {
+    $tempQuery .= " OR genre = 'Strategy'";
+  }
+
+  $tempQuery = substr($tempQuery, 3);
+
+  $query .= $tempQuery;
+
+  $query .= ' ORDER BY score DESC LIMIT 20';
+
+//Get credentials
+include 'private/db_credentials_products.php';
+
+// Suppress if connection failed
+$connection = @mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+
+// Test if connection succeeded
+if(mysqli_connect_errno()) {
+  echo '<br>';
+  die("Database connection failed: " .
+       mysqli_connect_error() .
+       " (" . mysqli_connect_errno() . ")"
+  );
+}
+//Else it wouldn't run any of the code below
+
+//Execute Query and get $result
+  $result = @mysqli_query($connection, $query);
+
+  //If executing query failed, print and stop the page
+  if (!$result) {
+    die("Database query failed.");
+  } else {
+
+    echo '<div class="GamesContainer">';
+
+    //Each Loop of fetching data
+  while ($row = @mysqli_fetch_assoc($result)) {
+    echo '<div class="gameEntry">';
+    echo '<a href="gameSpecific.php?gameCode=' . $row['FIELD1'] . '">';
+    echo '<div class="gameImages" style="background-image:url(' . $row["images"] . ')"></div>';
+    echo '</a>';
+    echo '<div class="gameNames">' . $row["title"] . '</div>';
+    echo '<div class="gameGenre">' . $row["genre"] . '</div>';
+    echo '</div>';
+  }
+
+  echo '</div>';
+  }
+
+  //Free $result from memory at the end
+  mysqli_free_result($result);
+  // Close database connection
+  mysqli_close($connection);
+
+
 
 ?>
