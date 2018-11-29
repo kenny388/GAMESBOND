@@ -182,6 +182,8 @@
                 </div>
 
               </div>
+
+              <input id="refineButton" type="submit" value="Refine Search"></input>
           </div>
         </div>
 

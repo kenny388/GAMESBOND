@@ -385,7 +385,7 @@ a:hover {
 
 .scoreBar h3 {
   margin-top: 0em;
-  margin-bottom: 0em;
+  margin-bottom: 0.2em;
 }
 
 .barLabelRow {
@@ -422,6 +422,13 @@ a:hover {
 
 .GamesContainer {
   margin-top: 2em;
+}
+
+#refineButton {
+  border-radius: 5em;
+  width: 85%;
+  margin-top: 1em;
+  background-color: rgba(0, 188, 189, 0.8);
 }
 
 /* .slider::-moz-range-thumb {
