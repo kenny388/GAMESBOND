@@ -34,7 +34,9 @@ if(mysqli_connect_errno()) {
     //Each Loop of fetching data
   while ($row = @mysqli_fetch_assoc($result)) {
     echo '<div class="gameEntry">';
+    echo '<a href="gameSpecific.php?gameCode=' . $row['FIELD1'] . '">';
     echo '<div class="gameImages" style="background-image:url(' . $row["images"] . ')"></div>';
+    echo '</a>';
     echo '<div class="gameNames">' . $row["title"] . '</div>';
     echo '<div class="gameGenre">' . $row["genre"] . '</div>';
     echo '</div>';
@@ -82,7 +84,9 @@ if(mysqli_connect_errno()) {
     //Each Loop of fetching data
   while ($row = @mysqli_fetch_assoc($result)) {
     echo '<div class="gameEntry">';
+    echo '<a href="gameSpecific.php?gameCode=' . $row['FIELD1'] . '">';
     echo '<div class="gameImages" style="background-image:url(' . $row["images"] . ')"></div>';
+    echo '</a>';
     echo '<div class="gameNames">' . $row["title"] . '</div>';
     echo '<div class="gameGenre">' . $row["genre"] . '</div>';
     echo '</div>';

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/shareAll.css">
     <link rel="stylesheet" href="css/showmodels.css">
     <link rel="stylesheet" href="css/sideBar.css">
-<script data-require="jquery" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script data-require="jquery" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
   </head>
   <body>
@@ -62,9 +62,6 @@
     <!-- page content -->
     <div class="mainBar">
     <div class="container">
-      <!-- <div class="row">
-        <input type="text"></input>
-      </div> -->
 
       <!-- Start Of Form -->
       <!-- Form that direct to itself -->
@@ -204,12 +201,23 @@
        </div>
       <div class="internal1">
         <img src="img/acBlackTint.png"/>
+        <div class="panelMsg">
+          <h3 class="msgTitle">Assassin's Creed Odyssey's first big story expansion begins next week</h3>
+          <p class="msgContent">Legacy of the First Blade, the first of two major expansions headed to Assassin's Creed Odyssey, will unfurl its first chunk next week.<p>
+          <a href="#"><p class="msgReadMore">Read More</p></a>
+        </div>
       </div>
-       <div class="internal">
+       <div class="internal1">
+         <img id="dksImage" src="img/dksScene.png"/>
+         <div class="panelMsg">
+           <h3 class="msgTitle">Dark Souls 3's Cut Epitaphs Would Have Been A Change For The Series</h3>
+           <p class="msgContent">In a new video digging through the Alpha and Network Test versions of Dark Souls 3, YouTuber Lance McDonald explores the game’s “epitaphs” that were cut before the final version of the game released to the public.<p>
+           <a href="#"><p class="msgReadMore">Read More</p></a>
+         </div>
       </div>
-       <div class="internal">
+       <div class="internal1">
       </div>
-      <div class="internal">
+      <div class="internal1">
      </div>
      <div class="internal">
      </div>

@@ -2,7 +2,7 @@ $('#rightButton').click(function() {
    event.preventDefault();
    var wid = $(window).width();
    $('#content').animate({
-     scrollLeft: "+=" + wid * 0.7
+     scrollLeft: "+=" + wid * 0.703
    }, "slow");
 });
 
@@ -10,7 +10,7 @@ $('#rightButton').click(function() {
     var wid = $(window).width();
    event.preventDefault();
    $('#content').animate({
-     scrollLeft: "-=" + wid * 0.7
+     scrollLeft: "-=" + wid * 0.703
    }, "slow");
 });
 

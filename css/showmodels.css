@@ -1,3 +1,4 @@
+/* Dark souls 3 scene image on panel : https://www.gamerstemple.com/news/23895/dark-souls-iii-headed-to-the-ringed-city#  */
 body {
   color: rgba(0, 0, 0, 1);
   /* background-color: rgba(14, 14, 44, 1); */
@@ -71,6 +72,44 @@ body {
   /* height: auto; */
 }
 
+#dksImage {
+  filter: brightness(0.6);
+}
+
+.panelMsg {
+  background-color: rgba(18, 221, 222, 0.2);
+  width: 30%;
+  height: 19em;
+  position: absolute;
+  top: 5em;
+  margin-left: 30%;
+  padding: 3% 3%;
+}
+
+.msgTitle {
+  width: 100%;
+  white-space: normal;
+  font-size: 1.3em;
+  color: rgba(255, 255, 255, 1);
+  font
+}
+
+.msgContent {
+  white-space: normal;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8em;
+  padding-bottom: 2em;
+}
+
+.msgReadMore {
+  color: rgba(255, 255, 255, 1);
+}
+
+.panelMsg a {
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+}
+
 #leftButton {
   position: absolute;
   width: 5em;
@@ -81,6 +120,7 @@ body {
   background-image: url("../img/back.png");
   background-color: rgba(0, 0, 0, 0);
   background-size: cover;
+  opacity: 0.5;
   background-position: center;
   border: none;
 }
@@ -95,8 +135,17 @@ body {
   background-image: url("../img/next.png");
   background-color: rgba(0, 0, 0, 0);
   background-size: cover;
+  opacity: 0.5;
   background-position: center;
   border: none;
+}
+
+#leftButton:hover {
+  cursor: pointer;
+}
+
+#rightButton:hover {
+  cursor: pointer;
 }
 
 .row {
