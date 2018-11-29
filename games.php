@@ -17,32 +17,6 @@
     //Start the session, no need to include initialize here, because it contains another set of database credentials
     session_start();
 
-    //Check if the form has been submitted before
-    if(isset($_POST['submit'])){
-
-      //Check Model Name if exist,
-      if (isset($_POST['modelName'])) {
-        //Check if empty
-        if (!empty($_POST['modelName'])) {
-          //Assign the trimmed number to orderNumber
-        	$modelName = trim($_POST['modelName']);
-          $modelNameArray =  explode(" ", $modelName);
-      	}
-      }
-    }
-
-    //Check if no checkBoxes are checked
-    if (isset($_POST['submit']) &&
-    !isset($_POST['chkProductName']) &&
-    !isset($_POST['chkProductCategory']) &&
-    !isset($_POST['chkProductScale']) &&
-    !isset($_POST['chkProductVendor']) &&
-    !isset($_POST['chkProductDescription']) &&
-    !isset($_POST['chkProductBuyPrice'])) {
-      //There is nothing to select :/
-      $errors['fields'] = "Please select some fields to display!";
-    }
-
     //Include functions:
     include 'functions.php';
 
@@ -53,34 +27,6 @@
 
     // Error array that might get populated if there is error
     $errors = array();
-
-    $modelName = "";
-
-    //Check if the form has been submitted before
-    if(isset($_POST['submit'])){
-
-      //Check Model Name if exist,
-      if (isset($_POST['modelName'])) {
-        //Check if empty
-        if (!empty($_POST['modelName'])) {
-          //Assign the trimmed number to orderNumber
-        	$modelName = trim($_POST['modelName']);
-          $modelNameArray =  explode(" ", $modelName);
-      	}
-      }
-    }
-
-      //Check if no checkBoxes are checked
-      if (isset($_POST['submit']) &&
-      !isset($_POST['chkProductName']) &&
-      !isset($_POST['chkProductCategory']) &&
-      !isset($_POST['chkProductScale']) &&
-      !isset($_POST['chkProductVendor']) &&
-      !isset($_POST['chkProductDescription']) &&
-      !isset($_POST['chkProductBuyPrice'])) {
-        //There is nothing to select :/
-        $errors['fields'] = "Please select some fields to display!";
-      }
 
     ?>
 
@@ -105,7 +51,7 @@
               <div class="m_icon"><img src="img/searchIcon.png"></img></div>
             </div>
 
-            </form>
+            <!-- </form> -->
             <div class="secondaryNavElement">
               <a>RECOMMENDATION</a>
             </div>
@@ -136,7 +82,7 @@
         </div>
 
         <hr>
-        <form id="secondForm">
+        <!-- <form id="secondForm"> -->
         <div class="searchOptions">
           <div class="conditions">
             <h3>Category</h3>
@@ -295,8 +241,6 @@
          }
        });
      });
-
-
     </script>
 
      <script data-require="jquery" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
