@@ -1,4 +1,12 @@
 <?php
+if (isset($_GET['keyword'])) {
+  $keyword = $_GET['keyword'];
+}
+
+if (isset($_GET['score'])) {
+  $score = $_GET['score'];
+}
+
 if (isset($_GET['chkPlatformer'])) {
   $chkPlatformer = $_GET['chkPlatformer'];
 } else {
@@ -67,5 +75,8 @@ echo $chkPuzzle;
 echo $chkMusic;
 echo $chkRacing;
 echo $chkStrategy;
+
+echo $keyword;
+echo $score;
 
 ?>

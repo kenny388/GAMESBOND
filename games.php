@@ -101,7 +101,7 @@
 
             <!-- If field exist, it would be restored back to the input -->
             <div class="searchBar">
-              <input name="modelName" placeholder="SEARCH HERE ...." value="<?php if (isset($_POST['modelName'])) echo htmlspecialchars($_POST['modelName']); ?>" class="mainSearchBar" type="text" size="20"/>
+              <input id="keywordSearch" name="modelName" placeholder="SEARCH HERE ...." value="<?php if (isset($_POST['modelName'])) echo htmlspecialchars($_POST['modelName']); ?>" class="mainSearchBar" type="text" size="20"/>
               <div class="m_icon"><img src="img/searchIcon.png"></img></div>
             </div>
 
@@ -136,7 +136,7 @@
         </div>
 
         <hr>
-        <form>
+        <form id="secondForm">
         <div class="searchOptions">
           <div class="conditions">
             <h3>Category</h3>
@@ -200,10 +200,11 @@
       </form>
 
 
-
+      <div class="ajaxContent">
         <?php
         include 'browseGame.php';
         ?>
+      </div>
 
 
 
@@ -284,6 +285,9 @@
           var chkSports = false;
         }
 
+        var keyword = document.getElementById('keywordSearch').value;
+        var score = document.getElementById('score').innerHTML;
+
          // var therate = $(this).attr('id');
          // var dataRate = 'act=rate&game_id=
          <?php
@@ -294,14 +298,13 @@
          // echo $_SESSION['email'];
          ?>
          // ';
-        var data = 'chkPlatformer=' + chkPlatformer + '&chkRPG=' + chkRPG + '&chkSimulation=' + chkSimulation + '&chkAction=' + chkAction + '&chkAdventure=' + chkAdventure + '&chkShooter=' + chkShooter + '&chkSports=' + chkSports + '&chkPuzzle=' + chkPuzzle + '&chkMusic=' + chkMusic + '&chkRacing=' + chkRacing + '&chkStrategy=' + chkStrategy;
+        var data = 'keyword=' + keyword + '&score=' + score + '&chkPlatformer=' + chkPlatformer + '&chkRPG=' + chkRPG + '&chkSimulation=' + chkSimulation + '&chkAction=' + chkAction + '&chkAdventure=' + chkAdventure + '&chkShooter=' + chkShooter + '&chkSports=' + chkSports + '&chkPuzzle=' + chkPuzzle + '&chkMusic=' + chkMusic + '&chkRacing=' + chkRacing + '&chkStrategy=' + chkStrategy;
 
       $.ajax({
          type : "GET",
          url : "refineSearch.php",
          data: data,
          success:function(data){
-           // document.getElementByClassName('refineButton').style.display = 'hidden';
            window.alert(data);
          }
        });
