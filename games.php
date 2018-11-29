@@ -48,7 +48,7 @@
             <!-- If field exist, it would be restored back to the input -->
             <div class="searchBar">
               <input id="keywordSearch" name="modelName" placeholder="SEARCH HERE ...." value="<?php if (isset($_POST['modelName'])) echo htmlspecialchars($_POST['modelName']); ?>" class="mainSearchBar" type="text" size="20"/>
-              <div class="m_icon"><img src="img/searchIcon.png"></img></div>
+              <div class="m_icon"><a id="searchButton" href=""><img src="img/searchIcon.png"></a></img></div>
             </div>
 
             <!-- </form> -->
@@ -241,6 +241,80 @@
          }
        });
      });
+
+     $('#searchButton').click(function(event){
+       event.preventDefault();
+       if (document.getElementById('chkPlatformer').checked) {
+         var chkPlatformer = true;
+       } else {
+         var chkPlatformer = false;
+       }
+       if (document.getElementById('chkRPG').checked) {
+         var chkRPG = true;
+       } else {
+         var chkRPG = false;
+       }
+       if (document.getElementById('chkSimulation').checked) {
+         var chkSimulation = true;
+       } else {
+         var chkSimulation = false;
+       }
+       if (document.getElementById('chkAction').checked) {
+         var chkAction = true;
+       } else {
+         var chkAction = false;
+       }
+       if (document.getElementById('chkAdventure').checked) {
+         var chkAdventure = true;
+       } else {
+         var chkAdventure = false;
+       }
+       if (document.getElementById('chkShooter').checked) {
+         var chkShooter = true;
+       } else {
+         var chkShooter = false;
+       }
+       if (document.getElementById('chkPuzzle').checked) {
+         var chkPuzzle = true;
+       } else {
+         var chkPuzzle = false;
+       }
+       if (document.getElementById('chkMusic').checked) {
+         var chkMusic = true;
+       } else {
+         var chkMusic = false;
+       }
+       if (document.getElementById('chkRacing').checked) {
+         var chkRacing = true;
+       } else {
+         var chkRacing = false;
+       }
+       if (document.getElementById('chkStrategy').checked) {
+         var chkStrategy = true;
+       } else {
+         var chkStrategy = false;
+       }
+       if (document.getElementById('chkSports').checked) {
+         var chkSports = true;
+       } else {
+         var chkSports = false;
+       }
+
+       var keyword = document.getElementById('keywordSearch').value;
+       var score = document.getElementById('score').innerHTML;
+
+       var data = 'keyword=' + keyword + '&score=' + score + '&chkPlatformer=' + chkPlatformer + '&chkRPG=' + chkRPG + '&chkSimulation=' + chkSimulation + '&chkAction=' + chkAction + '&chkAdventure=' + chkAdventure + '&chkShooter=' + chkShooter + '&chkSports=' + chkSports + '&chkPuzzle=' + chkPuzzle + '&chkMusic=' + chkMusic + '&chkRacing=' + chkRacing + '&chkStrategy=' + chkStrategy;
+
+     $.ajax({
+        type : "GET",
+        url : "refineSearch.php",
+        data: data,
+        success:function(data){
+          // window.alert(data);
+          document.getElementById("ajaxContent").innerHTML = data;
+        }
+      });
+    });
     </script>
 
      <script data-require="jquery" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
