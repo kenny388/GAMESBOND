@@ -104,6 +104,8 @@
               <input name="modelName" placeholder="SEARCH HERE ...." value="<?php if (isset($_POST['modelName'])) echo htmlspecialchars($_POST['modelName']); ?>" class="mainSearchBar" type="text" size="20"/>
               <div class="m_icon"><img src="img/searchIcon.png"></img></div>
             </div>
+
+            </form>
             <div class="secondaryNavElement">
               <a>RECOMMENDATION</a>
             </div>
@@ -134,42 +136,43 @@
         </div>
 
         <hr>
+        <form>
         <div class="searchOptions">
           <div class="conditions">
             <h3>Category</h3>
               <div class="chkBoxRow">
                 <div class="chkEntry">
-                  <input type="checkbox" name="chkPlatformer" value="chkPlatformer" <?php if (isset($_POST['chkPlatformer'])) echo "checked"; ?>>Platformer</input>
+                  <input type="checkbox" id="chkPlatformer" name="chkPlatformer" value="chkPlatformer" <?php if (isset($_POST['chkPlatformer'])) echo "checked"; ?>>Platformer</input>
                 </div>
                 <div class="chkEntry">
-                  <input type="checkbox" name="chkRPG" value="chkRPG" <?php if (isset($_POST['chkRPG'])) echo "checked"; ?>>RPG</input>
+                  <input type="checkbox" id="chkRPG" name="chkRPG" value="chkRPG" <?php if (isset($_POST['chkRPG'])) echo "checked"; ?>>RPG</input>
                 </div>
                 <div class="chkEntry">
-                  <input type="checkbox" name="chkSimulation" value="chkSimulation" <?php if (isset($_POST['chkSimulation'])) echo "checked"; ?>>Simulation</input>
+                  <input type="checkbox" id="chkSimulation" name="chkSimulation" value="chkSimulation" <?php if (isset($_POST['chkSimulation'])) echo "checked"; ?>>Simulation</input>
                 </div>
                 <div class="chkEntry">
-                  <input type="checkbox" name="chkAction" value="chkAction" <?php if (isset($_POST['chkAction'])) echo "checked"; ?>>Action</input>
+                  <input type="checkbox" id="chkAction" name="chkAction" value="chkAction" <?php if (isset($_POST['chkAction'])) echo "checked"; ?>>Action</input>
                 </div>
                 <div class="chkEntry">
-                  <input type="checkbox" name="chkAdventure" value="chkAdventure" <?php if (isset($_POST['chkAdventure'])) echo "checked"; ?>>Adventure</input>
+                  <input type="checkbox" id="chkAdventure" name="chkAdventure" value="chkAdventure" <?php if (isset($_POST['chkAdventure'])) echo "checked"; ?>>Adventure</input>
                 </div>
                 <div class="chkEntry">
-                  <input type="checkbox" name="chkShooter" value="chkShooter" <?php if (isset($_POST['chkShooter'])) echo "checked"; ?>>Shooter</input>
+                  <input type="checkbox" id="chkShooter" name="chkShooter" value="chkShooter" <?php if (isset($_POST['chkShooter'])) echo "checked"; ?>>Shooter</input>
                 </div>
                 <div class="chkEntry">
-                  <input type="checkbox" name="chkSports" value="chkSports" <?php if (isset($_POST['chkSports'])) echo "checked"; ?>>Sports</input>
+                  <input type="checkbox" id="chkSports" name="chkSports" value="chkSports" <?php if (isset($_POST['chkSports'])) echo "checked"; ?>>Sports</input>
                 </div>
                 <div class="chkEntry">
-                  <input type="checkbox" name="chkPuzzle" value="chkPuzzle" <?php if (isset($_POST['chkPuzzle'])) echo "checked"; ?>>Puzzle</input>
+                  <input type="checkbox" id="chkPuzzle" name="chkPuzzle" value="chkPuzzle" <?php if (isset($_POST['chkPuzzle'])) echo "checked"; ?>>Puzzle</input>
                 </div>
                 <div class="chkEntry">
-                  <input type="checkbox" name="chkMusic" value="chkMusic" <?php if (isset($_POST['chkMusic'])) echo "checked"; ?>>Music</input>
+                  <input type="checkbox" id="chkMusic" name="chkMusic" value="chkMusic" <?php if (isset($_POST['chkMusic'])) echo "checked"; ?>>Music</input>
                 </div>
                 <div class="chkEntry">
-                  <input type="checkbox" name="chkRacing" value="chkRacing" <?php if (isset($_POST['chkRacing'])) echo "checked"; ?>>Racing</input>
+                  <input type="checkbox" id="chkRacing" name="chkRacing" value="chkRacing" <?php if (isset($_POST['chkRacing'])) echo "checked"; ?>>Racing</input>
                 </div>
                 <div class="chkEntry">
-                  <input type="checkbox" name="chkStrategy" value="chkStrategy" <?php if (isset($_POST['chkStrategy'])) echo "checked"; ?>>Strategy</input>
+                  <input type="checkbox" id="chkStrategy" name="chkStrategy" value="chkStrategy" <?php if (isset($_POST['chkStrategy'])) echo "checked"; ?>>Strategy</input>
                 </div>
               </div>
 
@@ -222,6 +225,89 @@
       slider.oninput = function() {
           output.innerHTML = this.value;
       }
+
+      $('#refineButton').click(function(event){
+        event.preventDefault();
+        if (document.getElementById('chkPlatformer').checked) {
+          var chkPlatformer = true;
+        } else {
+          var chkPlatformer = false;
+        }
+        if (document.getElementById('chkRPG').checked) {
+          var chkRPG = true;
+        } else {
+          var chkRPG = false;
+        }
+        if (document.getElementById('chkSimulation').checked) {
+          var chkSimulation = true;
+        } else {
+          var chkSimulation = false;
+        }
+        if (document.getElementById('chkAction').checked) {
+          var chkAction = true;
+        } else {
+          var chkAction = false;
+        }
+        if (document.getElementById('chkAdventure').checked) {
+          var chkAdventure = true;
+        } else {
+          var chkAdventure = false;
+        }
+        if (document.getElementById('chkShooter').checked) {
+          var chkShooter = true;
+        } else {
+          var chkShooter = false;
+        }
+        if (document.getElementById('chkPuzzle').checked) {
+          var chkPuzzle = true;
+        } else {
+          var chkPuzzle = false;
+        }
+        if (document.getElementById('chkMusic').checked) {
+          var chkMusic = true;
+        } else {
+          var chkMusic = false;
+        }
+        if (document.getElementById('chkRacing').checked) {
+          var chkRacing = true;
+        } else {
+          var chkRacing = false;
+        }
+        if (document.getElementById('chkStrategy').checked) {
+          var chkStrategy = true;
+        } else {
+          var chkStrategy = false;
+        }
+        if (document.getElementById('chkSports').checked) {
+          var chkSports = true;
+        } else {
+          var chkSports = false;
+        }
+
+         // var therate = $(this).attr('id');
+         // var dataRate = 'act=rate&game_id=
+         <?php
+         // echo $gameCode;
+         ?>
+         // &user_rating='+therate+'&user_id=
+         <?php
+         // echo $_SESSION['email'];
+         ?>
+         // ';
+        var data = 'chkPlatformer=' + chkPlatformer + '&chkRPG=' + chkRPG + '&chkSimulation=' + chkSimulation + '&chkAction=' + chkAction + '&chkAdventure=' + chkAdventure + '&chkShooter=' + chkShooter + '&chkSports=' + chkSports + '&chkPuzzle=' + chkPuzzle + '&chkMusic=' + chkMusic + '&chkRacing=' + chkRacing + '&chkStrategy=' + chkStrategy;
+
+      $.ajax({
+         type : "GET",
+         url : "refineSearch.php",
+         data: data,
+         success:function(data){
+           // document.getElementByClassName('refineButton').style.display = 'hidden';
+           window.alert(data);
+         }
+       });
+     });
+
+
     </script>
 
      <script data-require="jquery" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
