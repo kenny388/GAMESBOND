@@ -300,6 +300,9 @@
          var chkSports = false;
        }
 
+
+
+
        var keyword = document.getElementById('keywordSearch').value;
        var score = document.getElementById('score').innerHTML;
 
@@ -310,7 +313,6 @@
         url : "refineSearch.php",
         data: data,
         success:function(data){
-          // window.alert(data);
           document.getElementById("ajaxContent").innerHTML = data;
         }
       });

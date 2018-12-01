@@ -196,7 +196,7 @@
                 </div>
 
                 <div class="commentSystem" id="commentSystem">
-                  <form action="commentAjax.php" method="post">
+                <form action="commentAjax.php" method="post">
                   <textarea id="commentTitle" placeholder="Review Title" rows="1" cols="50"></textarea>
                   <textarea id="commentContent" placeholder="Write your review"></textarea>
                   <input type="submit" id="submitButton" value="SUBMIT" name="submit">
@@ -266,6 +266,28 @@
 
 
 </div>
+
+<?php
+  if (isset($_SESSION['loggedIn']))  {
+?>
+
+<script>
+//Ajax to add browsing history
+var historyData = 'game_id=<?php echo $gameCode; ?>&user_id=<?php echo $_SESSION['email']; ?>';
+$.ajax({
+   type : "POST",
+   url : "addBrowsingHistory.php",
+   data: historyData,
+   success:function(data){
+     window.alert(data);
+   }
+ });
+</script>
+
+<?php
+}
+?>
+
 <script>
 $(function(){
    $('.rate-btn').hover(function(){
