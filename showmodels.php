@@ -65,54 +65,12 @@
 
       <!-- Start Of Form -->
       <!-- Form that direct to itself -->
-      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+      <?php
+        include 'topBar.php';
+      ?>
 
-        <div class="row">
-          <!-- Left Column -->
-          <div class="column">
-
-            <!-- If field exist, it would be restored back to the input -->
-            <input name="modelName" placeholder="SEARCH HERE ...." value="<?php if (isset($_POST['modelName'])) echo htmlspecialchars($_POST['modelName']); ?>" class="mainSearchBar" type="text" size="20"/>
-            <div class="secondaryNavElement">
-              <a>RECOMMENDATION</a>
-            </div>
-            <div class="secondaryNavElement">
-              <a>ACTIVITY</a>
-            </div>
-            <?php
-            if (isset($_SESSION['loggedIn'])) {
-            echo '<div class="secondaryNavElement">';
-              echo '<a href="logOut.php">LOGOUT</a>';
-            echo '</div>';
-            echo '<div class="secondaryNavElement">';
-              echo '<a href="#">Hi, ';
-              echo $_SESSION['firstName'];
-              echo '</a>';
-            echo '</div>';
-            } else {
-              echo '<div class="secondaryNavElement">';
-                echo '<a href="https://' . $_SERVER["HTTP_HOST"] . '/kycheung/GAMESBOND/GAMESBOND/login.php">LOGIN</a>';
-              echo '</div>';
-            }
-            ?>
-
-
-
-          </div>
-          <br>
-        </div>
-
-        <hr>
-
-
-        <div class="spaceForPanel">
-        </div>
-
-        <!-- Submit Button -->
-        <!-- <input class="button" type="submit" name="submit" value="Refine Search"/> -->
-
-        <!-- End Of Form -->
-      </form>
+      <div class="spaceForPanel">
+      </div>
 
       <div class="featuredTitle">
           <h3>Highest Rating</h3>

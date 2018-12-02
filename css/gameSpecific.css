@@ -124,6 +124,29 @@ h3 {
   color: rgba(0, 0, 0, 0.5);
 }
 
+.mainSearchBar {
+  width: 88%;
+  float: left;
+}
+
+.searchBar {
+  width: 45%;
+}
+
+.m_icon {
+  width: 10%;
+  height: auto;
+  float: left;
+  margin-left: 2%;
+}
+
+.m_icon img {
+  width: 90%;
+  height: auto;
+}
+
+.searchBar i {}
+
 #rightColumn {
   /* margin-left: 1%; */
 }
