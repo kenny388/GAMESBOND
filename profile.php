@@ -16,6 +16,13 @@
 	include 'sideBar.php';
        // Error array that might get populated if there is error
 	$errors = array();
+
+			if(!isset($_SESSION['loggedIn']) && !isset($_GET['user_id'])) {
+				header("Location: showmodels.php");
+				exit();
+			}
+
+
 	?>
 	<!-- SideBar content: -->
 
@@ -38,17 +45,25 @@
 
 
     //Extract session email
-	$email = @$_SESSION['email'];
-	$name = $_SESSION["firstName"];
-
+		if(!isset($_SESSION['loggedIn'])) {
+			$email = @$_SESSION['email'];
+			$name = @$_SESSION["firstName"];
+		}
 
     //Receives the GET model name
 	// $receivedName = $_GET['productName'];
 	// $modelName = str_replace('%20', ' ', $receivedName);
 	include 'private/db_credentials.php';
 
-	$user = $_SESSION["email"];
-	$query = "SELECT * FROM users JOIN rating ON users.email = rating.user_id WHERE user_id = '{$user}'";
+
+	$user = @$_SESSION['email'];
+	if (isset($_GET['user_id'])) {
+		$user = $_GET["user_id"];
+		$email = $_GET["user_id"];
+	}
+
+
+	$query = "SELECT * FROM users WHERE email = '{$user}'";
 	$connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
 						if(mysqli_connect_errno()) {
 							$msg = "Database connection failed: ";
@@ -59,21 +74,32 @@
 
 	$result = $connection->query($query);
 
+	while ($row = @mysqli_fetch_assoc($result)) {
+		$userID = $row["email"];
+		$userFirstName = $row["first_name"];
+		$userLastName = $row["last_name"];
+	}
+
+
+	//Checking User Comment Number
+	$query = "SELECT * FROM users JOIN rating ON users.email = rating.user_id WHERE user_id = '{$user}'";
+	$connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+						if(mysqli_connect_errno()) {
+							$msg = "Database connection failed: ";
+							$msg .= mysqli_connect_error();
+							$msg .= " (" . mysqli_connect_errno() . ")";
+							exit($msg);
+						}
+
+	$result = @$connection->query($query);
+
 	$commentCount = 0;
 
 	while ($row = @mysqli_fetch_assoc($result)) {
-		// $retrievedID = $row['FIELD1'];
-		// $retrievedName = $row['title'];
-		$userID = $row["user_id"];
-		$userFirstName = $row["first_name"];
-		$userLastName = $row["last_name"];
 		$commentCount += 1;
-		// $userCommentNumber = $row["count(*)"];
-		// echo $userCommentNumber;
 
 	}
 
-	// echo $commentCount;
 	?>
 
 	<div class="userPanel">
@@ -97,9 +123,13 @@
 		</div>
 	</div>
 
+	<div class="featuredTitle">
+			<h3>Comments</h3>
+			<hr>
+	</div>
+
 		<?php
-		$user = $_SESSION["email"];
-		$query = "SELECT * FROM users JOIN rating ON users.email = rating.user_id WHERE user_id = '{$user}'";
+		$query = "SELECT * FROM users JOIN rating JOIN games ON users.email = rating.user_id AND rating.game_id = games.FIELD1 WHERE user_id = '{$user}'";
 		$connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
               if(mysqli_connect_errno()) {
                 $msg = "Database connection failed: ";
@@ -118,28 +148,41 @@
 			$userID = $row["user_id"];
 			$commentID = $row["rating_id"];
 				# code...
-			echo $userID;
-			echo "<br>";
-			echo "comments:";
-			echo "<br>";
-			echo $commentID;
-			echo "<br>";
-			echo "<br>";
+				echo '<div class="commentEntry">';
+					echo '<div class="gamePanel">';
+						// echo '<div class="userName">';
+						// 	echo "<h3>" . $row['first_name'] . " " . $row['last_name'] . "</h3>";
+						// echo "</div>";
+						echo "<div class='profilePic'>";
+							echo "<img src=" . $row['images'] . "></img>";
+						echo "</div>";
+						echo '<div class="userName">';
+							echo "<h3>Rated: " . $row['user_rating'] . "</h3>";
+						echo "</div>";
+					echo "</div>";
+					echo "<div class='blackLine'>";
+					echo "</div>";
+					echo "<div class='contentPanel'>";
+						echo "<div class='timeStamp'>";
+							echo "<p>" . $row['time'] . "</p>";
+						echo "</div>";
+						echo "<div class='actualTitle'>";
+							echo "<p>" . $row['comment_title'] . "</p>";
+						echo "</div>";
+						echo "<div class='actualContent'>";
+							echo "<p>" . $row['user_comment'] . "</p>";
+						echo "</div>";
+
+					echo "</div>";
+				echo "</div>";
+		}
+
+		if ($commentCount == 0) {
+			echo "This user has not rate or comment on any game yet";
 		}
 
 		?>
 
-		name:
-		<?php echo $name; ?>
-
-
-		<br>
-		<!-- comment_ID -->
-
-		<br>
-
-		<!-- games ID -->
-		Games:
 
 
 			<div class="featuredTitle">
@@ -153,10 +196,7 @@
 
 		<?php
 
-
-		if(isset($_SESSION['loggedIn'])) {
-			$user_id = $_SESSION['email'];
-				$query = "SELECT * FROM browse_History INNER JOIN games ON browse_History.game_id = games.FIELD1 WHERE user_id = '{$user_id}'";
+				$query = "SELECT * FROM browse_History INNER JOIN games ON browse_History.game_id = games.FIELD1 WHERE browse_History.user_id = '{$user}'";
 				$connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
 								if(mysqli_connect_errno()) {
 									$msg = "Database connection failed: ";
@@ -167,8 +207,8 @@
 
 				$result = $connection->query($query);
 
-				while ($row = @mysqli_fetch_assoc($result)) {
 
+				while ($row = @mysqli_fetch_assoc($result)) {
 					echo '<div class="gameEntry">';
 					echo '<a href="gameSpecific.php?gameCode=' . $row['FIELD1'] . '">';
 					echo '<div class="gameImages" style="background-image:url(' . $row["images"] . ')"></div>';
@@ -176,12 +216,8 @@
 					echo '<div class="gameNames">' . $row["title"] . '</div>';
 					echo '<div class="gameGenre">' . $row["time_stamp"] . '</div>';
 					echo '</div>';
-
 				}
 
-		} else {
-
-		}
 
 			?>
 
