@@ -192,7 +192,7 @@
                 <div class="commentEntry">
                   <div class="userPanel">
                     <div class="userName">
-                      <h3><?php echo $singleRating['first_name'] . " " . $singleRating['last_name']; ?></h3>
+                      <a href="profile.php?user_id=<?php echo $singleRating['email']; ?>"><h3><?php echo $singleRating['first_name'] . " " . $singleRating['last_name']; ?></h3></a>
                     </div>
                     <div class="profilePic">
                       <img src="img/KirbySquare.png"></img>

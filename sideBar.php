@@ -17,7 +17,7 @@
       } else {
         echo '<div class="navElement"><a href= "http://';
         echo $_SERVER["HTTP_HOST"];
-        echo '/kycheung/GAMESBOND/GAMESBOND/showmodels.php">PROFILE</a></div>';
+        echo '/kycheung/GAMESBOND/GAMESBOND/profile.php">PROFILE</a></div>';
       }
       ?>
 
