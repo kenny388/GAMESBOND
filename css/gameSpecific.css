@@ -505,6 +505,11 @@ input[type="submit"] {
   height: auto;
 }
 
+.userName a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 1);
+}
+
 .contentPanel {
   /* background-color: rgba(0, 0, 0, 0.2); */
   width: 75%;

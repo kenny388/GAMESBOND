@@ -121,7 +121,7 @@
                         }
 
 
-                    $result2 = $connection->query("SELECT * FROM rating JOIN users ON rating.user_id = users.email WHERE game_id = '$gameCode'");
+                    $result2 = $connection->query("SELECT * FROM rating JOIN users ON rating.user_id = users.email WHERE game_id = '$gameCode' ORDER BY time DESC");
                         while($data2 = mysqli_fetch_assoc($result2)){
                               $rate_db2[] = $data2;
 
@@ -195,7 +195,7 @@
                       <a href="profile.php?user_id=<?php echo $singleRating['email']; ?>"><h3><?php echo $singleRating['first_name'] . " " . $singleRating['last_name']; ?></h3></a>
                     </div>
                     <div class="profilePic">
-                      <img src="img/KirbySquare.png"></img>
+                      <a href="profile.php?user_id=<?php echo $singleRating['email']; ?>"><img src="img/KirbySquare.png"></img></a>
                     </div>
                   </div>
                   <div class="blackLine">
