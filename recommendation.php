@@ -114,6 +114,11 @@
       }
 	}
 
+  if ($Platformer == 0 && $RPG == 0 && $Simulation == 0 && $Action == 0 && $Adventure == 0 && $Shooter == 0 && $Sports == 0 && $Puzzle == 0 && $Music == 0 && $Racing == 0 && $Strategy == 0) {
+    echo "You don't have any browsing history >< <br> We will recommend you to browse other games :)";
+    exit();
+  }
+
   $PlatformerPersentage = $Platformer * 10 / $count;
   $RPGPersentage = $RPG * 10 / $count;
   $SimulationPersentage = $Simulation * 10 / $count;
@@ -201,7 +206,7 @@
 				// }
 
         // prepare and bind
-        $stmt = $connection->prepare("SELECT * FROM games WHERE genre = ? LIMIT ?");
+        $stmt = $connection->prepare("SELECT * FROM games WHERE genre = ? ORDER BY RAND() LIMIT ?");
         $stmt->bind_param("si", $tempGenre, $tempNumber);
         $stmt->bind_result($FIELD1, $score_phrase, $title, $url, $platform, $score, $genre, $editors_choice, $release_year, $releast_month, $release_day, $images);
 
