@@ -1,4 +1,4 @@
-<form method="post">
+<form action="games.php" method="post">
 
   <div class="row">
     <!-- Left Column -->
@@ -6,8 +6,14 @@
 
       <!-- If field exist, it would be restored back to the input -->
       <div class="searchBar">
+        <form action="/games.php" method="post">
         <input id="keywordSearch" name="modelName" placeholder="SEARCH HERE ...." value="<?php if (isset($_POST['modelName'])) echo htmlspecialchars($_POST['modelName']); ?>" class="mainSearchBar" type="text" size="20"/>
-        <div class="m_icon"><a id="searchButton" href=""><img src="img/searchIcon.png"></a></img></div>
+        <input type="submit"
+       style="position: absolute; left: -9999px; width: 1px; height: 1px;"
+       tabindex="-1" />
+        </form>
+        <div class="m_icon"><a id="searchButton" href="games.php"><img src="img/searchIcon.png"></a></img></div>
+
       </div>
 
       <!-- </form> -->

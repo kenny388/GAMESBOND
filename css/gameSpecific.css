@@ -375,8 +375,7 @@ hr {
 }
 
 .ratingSystem {
-  /* margin-top: 1em; */
-  margin-bottom: 4em;
+  margin-bottom: 1em;
 }
 
 .rate {
@@ -457,6 +456,10 @@ input[type="submit"] {
   border-radius: 0.2em;
 }
 
+.comments {
+  margin-top: 2em;
+}
+
 .commentSystem {
   display: none;
 }
@@ -534,6 +537,15 @@ input[type="submit"] {
 .blackLine {
   width: 1px;
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+#addingButton {
+  width: 100%;
+  border-radius: 5em;
+  padding: 1em;
+  font-size: 1em;
+  background-color: rgba(0, 188, 189, 0.8);
+  border: none;
 }
 
 /* .verticalHR {
