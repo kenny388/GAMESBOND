@@ -109,7 +109,7 @@
 	</div>
 
 		<?php
-		$query = "SELECT * FROM User_Watchlists JOIN games JOIN browse_History ON games.FIELD1 = User_Watchlists.game_id AND browse_History.game_id = User_Watchlists.game_id WHERE User_Watchlists.user_id = '{$user}'";
+		$query = "SELECT DISTINCT * FROM User_Watchlists INNER JOIN games  INNER JOIN browse_History ON games.FIELD1 = User_Watchlists.game_id AND browse_History.game_id = User_Watchlists.game_id WHERE User_Watchlists.user_id = '{$user}' AND browse_History.user_id = '{$user}'";
 		$connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
               if(mysqli_connect_errno()) {
                 $msg = "Database connection failed: ";
@@ -126,6 +126,8 @@
 			// $retrievedID = $row['FIELD1'];
 			// $retrievedName = $row['title'];
 			$userID = $row["user_id"];
+      $imgURL = $row["images"];
+      $gameID = $row["game_id"];
 			// $commentID = $row["rating_id"];
 				# code...
 				echo '<div class="commentEntry">';
@@ -134,8 +136,10 @@
 						// 	echo "<h3>" . $row['first_name'] . " " . $row['last_name'] . "</h3>";
 						// echo "</div>";
 						echo "<div class='profilePic'>";
-							echo "<img src=" . $row['images'] . "></img>";
-						echo "</div>";
+							echo "<a href='gameSpecific.php?gameCode=";
+              echo "$gameID'>";
+              echo "<img src='$imgURL'></img></a>";
+						echo '</div>';
 						// echo '<div class="userName">';
 						// 	echo "<h3>Rated: " . $row['user_rating'] . "</h3>";
 						// echo "</div>";
@@ -147,13 +151,16 @@
 						// 	echo "<p>" . $row['time'] . "</p>";
 						// // echo "</div>";
             echo "<div class='timeStamp'>";
-              echo "<p>Last Checked On" . $row['time_stamp'] . "</p>";
+              echo "<p>Last Checked On " . $row['time_stamp'] . "</p>";
             echo "</div>";
 						echo "<div class='actualTitle'>";
 							echo "<p>" . $row['title'] . "</p>";
 						echo "</div>";
+
+            include 'checkNumberOfComments.php';
+
 						echo "<div class='actualContent'>";
-							echo "<p>" . "6 New Reviews" . "</p>";
+							echo "<p>" . ($numOfComment - $row['comment_seen']) . " New Comment(s)</p>";
 						echo "</div>";
 
 

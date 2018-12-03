@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 @import url('https://fonts.googleapis.com/css?family=Chakra+Petch');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 
 html {
   -webkit-box-sizing: border-box;
@@ -11,6 +12,17 @@ html {
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
   box-sizing: inherit;
+}
+
+#logo {
+  font-family: 'Press Start 2P', cursive;
+  transition: all 0.25s ease-in-out;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 1);
+}
+
+#logo:hover {
+  color: rgba(0, 210, 211, 1);
 }
 
 body {

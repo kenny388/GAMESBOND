@@ -1,7 +1,7 @@
 <div class="sideBar">
   <div class="content">
   <div class="logo">
-    <h2>GAMESBOND</h2>
+    <a id="logo" href="showmodels.php"><h2>GAMESBOND</h2></a>
   </div>
   <div class="nav">
       <div class="navElement"><a href= "http://<?php echo $_SERVER["HTTP_HOST"]; ?>/kycheung/GAMESBOND/GAMESBOND/showmodels.php">HOME</a></div>
