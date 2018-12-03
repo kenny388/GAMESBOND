@@ -53,7 +53,13 @@
 
             <!-- </form> -->
             <div class="secondaryNavElement">
-              <a>RECOMMENDATION</a>
+              <?php
+                if (isset($_SESSION['loggedIn'])) {
+                  echo "<a href='recommendation.php'>RECOMMENDATION</a>";
+                } else {
+                  echo '<a href="https://' . $_SERVER["HTTP_HOST"] . '/kycheung/GAMESBOND/GAMESBOND/login.php">RECOMMENDATION</a>';
+                }
+              ?>
             </div>
               <div class="secondaryNavElement">
                               <a>ACTIVITY</a>

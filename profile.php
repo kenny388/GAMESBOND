@@ -184,7 +184,6 @@
 		?>
 
 
-
 			<div class="featuredTitle">
 					<h3>Browse History</h3>
 					<hr>

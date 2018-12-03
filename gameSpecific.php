@@ -186,7 +186,6 @@
 
                 <?php
                 foreach ($rate_db2 as $singleRating) {
-                  // echo print_r($singleRating);
                 ?>
 
                 <div class="commentEntry">
