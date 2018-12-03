@@ -342,11 +342,6 @@ a:hover {
   margin-top: 0.2em;
 }
 
-.timeStamp {
-  font-size: 0.8em;
-  color: rgba(0, 0, 0, 0.5);
-}
-
 .chkBoxRow {
   display: flex;
   flex-direction: row;
@@ -560,8 +555,8 @@ a:hover {
 }
 
 .timeStamp {
-  font-size: 0.8em;
-  color: rgba(0, 0, 0, 0.4);
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.5);
   margin-bottom: 2.2em;
 }
 

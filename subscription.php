@@ -4,7 +4,7 @@
 	<title></title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/shareAll.css">
-	<link rel="stylesheet" href="css/profile.css">
+	<link rel="stylesheet" href="css/subscription.css">
 	<link rel="stylesheet" href="css/sideBar.css">
 	<script data-require="jquery" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
@@ -104,12 +104,12 @@
 
 
 	<div class="featuredTitle">
-			<h3>Comments</h3>
+			<h3>My Subscriptions</h3>
 			<hr>
 	</div>
 
 		<?php
-		$query = "SELECT * FROM users JOIN rating JOIN games ON users.email = rating.user_id AND rating.game_id = games.FIELD1 WHERE user_id = '{$user}'";
+		$query = "SELECT * FROM User_Watchlists JOIN games JOIN browse_History ON games.FIELD1 = User_Watchlists.game_id AND browse_History.game_id = User_Watchlists.game_id WHERE User_Watchlists.user_id = '{$user}'";
 		$connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
               if(mysqli_connect_errno()) {
                 $msg = "Database connection failed: ";
@@ -126,7 +126,7 @@
 			// $retrievedID = $row['FIELD1'];
 			// $retrievedName = $row['title'];
 			$userID = $row["user_id"];
-			$commentID = $row["rating_id"];
+			// $commentID = $row["rating_id"];
 				# code...
 				echo '<div class="commentEntry">';
 					echo '<div class="gamePanel">';
@@ -136,22 +136,27 @@
 						echo "<div class='profilePic'>";
 							echo "<img src=" . $row['images'] . "></img>";
 						echo "</div>";
-						echo '<div class="userName">';
-							echo "<h3>Rated: " . $row['user_rating'] . "</h3>";
-						echo "</div>";
+						// echo '<div class="userName">';
+						// 	echo "<h3>Rated: " . $row['user_rating'] . "</h3>";
+						// echo "</div>";
 					echo "</div>";
 					echo "<div class='blackLine'>";
 					echo "</div>";
 					echo "<div class='contentPanel'>";
-						echo "<div class='timeStamp'>";
-							echo "<p>" . $row['time'] . "</p>";
-						echo "</div>";
+						// echo "<div class='timeStamp'>";
+						// 	echo "<p>" . $row['time'] . "</p>";
+						// // echo "</div>";
+            echo "<div class='timeStamp'>";
+              echo "<p>Last Checked On" . $row['time_stamp'] . "</p>";
+            echo "</div>";
 						echo "<div class='actualTitle'>";
-							echo "<p>" . $row['comment_title'] . "</p>";
+							echo "<p>" . $row['title'] . "</p>";
 						echo "</div>";
 						echo "<div class='actualContent'>";
-							echo "<p>" . $row['user_comment'] . "</p>";
+							echo "<p>" . "6 New Reviews" . "</p>";
 						echo "</div>";
+
+
 
 					echo "</div>";
 				echo "</div>";
@@ -208,31 +213,31 @@
 	</div>
 
 	<!-- Watchlist Code -->
-		Watchlist:
-		<br>
+		<!-- Watchlist: -->
+		<!-- <br> -->
 		<?php
-		$user_id = $_SESSION["user_id"];
-		$query = "SELECT * FROM User_Watchlists JOIN games on games.FIELD1 = User_Watchlists.game_id WHERE user_id = '{$user}'";
-		$connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-
-		$result = $connection -> query($query);
-
-		while ($row = @mysqli_fetch_assoc($result)) {
-			$user_id = $row["user_id"];
-			$game_id = $row["game_id"];
-					// echo "game_id:";
-			echo '<div class="gameNames">' . $row["title"] . '</div>';
-			echo $user_id;
-			echo "<br>";
-			echo '<a href="gameSpecific.php?gameCode=' . $game_id . '">';
-			echo $game_id;
-
-			echo '<div class="gameImages" style="background-image:url(' . $row["images"] . ')"></div>';
-			echo "<br>";
-			echo "</a>";
-			echo "<br> <br>";
-
-		}
+		// $user_id = $_SESSION["email"];
+		// $query = "SELECT * FROM User_Watchlists JOIN games on games.FIELD1 = User_Watchlists.game_id WHERE user_id = '{$user}'";
+		// $connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+    //
+		// $result = $connection -> query($query);
+    //
+		// while ($row = @mysqli_fetch_assoc($result)) {
+		// 	$user_id = $row["user_id"];
+		// 	$game_id = $row["game_id"];
+		// 			// echo "game_id:";
+		// 	echo '<div class="gameNames">' . $row["title"] . '</div>';
+		// 	echo $user_id;
+		// 	echo "<br>";
+		// 	echo '<a href="gameSpecific.php?gameCode=' . $game_id . '">';
+		// 	echo $game_id;
+    //
+		// 	echo '<div class="gameImages" style="background-image:url(' . $row["images"] . ')"></div>';
+		// 	echo "<br>";
+		// 	echo "</a>";
+		// 	echo "<br> <br>";
+    //
+		// }
 		?>
 		<!-- End -->
 
