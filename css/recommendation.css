@@ -575,3 +575,16 @@ a:hover {
   width: 1px;
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+.persentages {
+  width: 100%;
+}
+
+.Half {
+  width: 50%;
+  float: left;
+}
+
+.Half p {
+  margin-bottom: 0.7em;
+}

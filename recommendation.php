@@ -131,18 +131,6 @@
   $RacingPersentage = $Racing * 10 / $count;
   $StrategyPersentage = $Strategy * 10 / $count;
 
-  echo "Platformer: " . round($PlatformerPersentage * 10, 1) . "%<br>";
-  echo "RPG: " . round($RPGPersentage * 10, 1) . "%<br>";
-  echo "Simulation: " . round($SimulationPersentage * 10, 1) . "%<br>";
-  echo "Action: " . round($ActionPersentage * 10, 1) . "%<br>";
-  echo "Adventure: " . round($AdventurePersentage * 10, 1) . "%<br>";
-  echo "Shooter: " . round($ShooterPersentage * 10, 1) . "%<br>";
-  echo "Sports: " . round($SportsPersentage * 10, 1) . "%<br>";
-  echo "Puzzle: " . round($PuzzlePersentage * 10, 1) . "%<br>";
-  echo "Music: " . round($MusicPersentage * 10, 1) . "%<br>";
-  echo "Racing: " . round($RacingPersentage * 10, 1) . "%<br>";
-  echo "Strategy: " . round($StrategyPersentage * 10, 1) . "%<br>";
-
   $PlatformerNumber = round($PlatformerPersentage, 0, PHP_ROUND_HALF_DOWN);
   $RPGNumber = round($RPGPersentage, 0, PHP_ROUND_HALF_DOWN);
   $SimulationNumber = round($SimulationPersentage, 0, PHP_ROUND_HALF_DOWN);
@@ -174,7 +162,7 @@
 
 
 			<div class="featuredTitle">
-					<h3>Browse History</h3>
+					<h3>Recommendation</h3>
 					<hr>
 			</div>
 
@@ -366,6 +354,37 @@
         $stmt->close();
         $connection->close();
 
+
+
+        echo '<div class="persentages">';
+        echo '<h3>Based on your browse history:</h3>';
+        echo '<div class="Half">';
+        echo '<p>';
+        echo "Platformer: " . round($PlatformerPersentage * 10, 1) . "%</p>";
+        echo '<p>';
+        echo "RPG: " . round($RPGPersentage * 10, 1) . "%</p>";
+        echo '<p>';
+        echo "Simulation: " . round($SimulationPersentage * 10, 1) . "%</p>";
+        echo '<p>';
+        echo "Action: " . round($ActionPersentage * 10, 1) . "%</p>";
+        echo '<p>';
+        echo "Adventure: " . round($AdventurePersentage * 10, 1) . "%</p>";
+        echo '<p>';
+        echo "Shooter: " . round($ShooterPersentage * 10, 1) . "%</p>";
+        echo '</div>';
+        echo '<div class="Half">';
+        echo '<p>';
+        echo "Sports: " . round($SportsPersentage * 10, 1) . "%</p>";
+        echo '<p>';
+        echo "Puzzle: " . round($PuzzlePersentage * 10, 1) . "%</p>";
+        echo '<p>';
+        echo "Music: " . round($MusicPersentage * 10, 1) . "%</p>";
+        echo '<p>';
+        echo "Racing: " . round($RacingPersentage * 10, 1) . "%</p>";
+        echo '<p>';
+        echo "Strategy: " . round($StrategyPersentage * 10, 1) . "%</p>";
+        echo '</div>';
+        echo '</div>';
 
 			?>
 
