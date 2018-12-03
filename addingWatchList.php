@@ -11,20 +11,15 @@ if (isset($_POST['user_id'])) {
   $user_id = "";
 }
 
-if(isset($_POST["rate"])) {
-  $number = $_POST["rate"];
-} else {
-  $number = 0;
-}
+$checkQuery = "SELECT * from User_Watchlists WHERE user_id = '{$user_id}' AND game_id = '{$game_id}'";
+$insertQuery = "INSERT INTO User_Watchlists (user_id, game_id) VALUES ('$user_id', '$game_id')";
 
-$checkQuery = "SELECT * from browse_History WHERE user_id = '{$user_id}' AND game_id = '{$game_id}'";
-$insertQuery = "INSERT INTO browse_History (user_id, game_id, comment_seen) VALUES ('$user_id', $game_id, $number)";
-$updateQuery = "UPDATE browse_History SET time_stamp = CURRENT_TIMESTAMP(), comment_seen = $number  WHERE user_id = '{$user_id}' AND game_id = '{$game_id}'";
+// $updateQuery = "UPDATE User_Watchlists SET time_stamp = CURRENT_TIMESTAMP() WHERE user_id = '{$user_id}' AND game_id = '{$game_id}'";
+
 
 //Get credentials
 include 'private/db_credentials_products.php';
 
-// Suppress if connection failed
 $connection = @mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
 // Test if connection succeeded
@@ -35,13 +30,10 @@ if(mysqli_connect_errno()) {
        " (" . mysqli_connect_errno() . ")"
   );
 }
-//Else it wouldn't run any of the code below
 
-//Execute First Check Query and get $result
   $checkResult = @mysqli_query($connection, $checkQuery);
 
-  //If executing query failed, print and stop the page
-  if (!$checkResult) {
+if (!$checkResult) {
     // echo mysql_errno($connection) . ": " . mysql_error($connection) . "\n";
     die("Database query failed.");
 
@@ -62,7 +54,7 @@ if(mysqli_connect_errno()) {
       }
   }
 
-  if ($existed == false) {
+    if ($existed == false) {
     //Execute Insert Query and get $result
       $insertResult = @mysqli_query($connection, $insertQuery);
 
@@ -72,22 +64,8 @@ if(mysqli_connect_errno()) {
     } else {
       echo 'inserted';
     }
+  } else {
+  	echo "Inserttedddd";
   }
-
-  if ($existed == true) {
-    //Execute Insert Query and get $result
-      $updateResult = @mysqli_query($connection, $updateQuery);
-
-      //If executing query failed, print and stop the page
-    if (!$updateResult) {
-      echo 'some tin wong wid updating';
-      die("Database query failed.");
-    } else {
-      echo 'updated';
-    }
-  }
-
-  // Close database connection
-  mysqli_close($connection);
 
 ?>

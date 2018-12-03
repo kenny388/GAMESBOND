@@ -131,6 +131,25 @@
                         $result->free_result();
                         $result2->free_result();
                 ?>
+                <?php
+                  if (isset($_SESSION['loggedIn']))  {
+                ?>
+
+
+                <div class="comments">
+              <input type="button" id="addingButton" value="ADD" name="add">
+
+              <?php
+                            if (isset($rate_db2)) {
+                            $commentCount = count($rate_db2);
+                          } else {
+                            $commentCount = 0;
+                          }
+
+
+                }
+              ?>
+
 
               <?php
               if (isset($_SESSION['loggedIn'])) {
@@ -184,6 +203,7 @@
                     <hr>
                 </div>
 
+
                 <?php
                 foreach ($rate_db2 as $singleRating) {
                 ?>
@@ -229,26 +249,53 @@
 
 </div>
 
-<?php
-  if (isset($_SESSION['loggedIn']))  {
-?>
 
-<script>
+
+<?php
+      if (isset($_SESSION['loggedIn']))  {
+        ?>
+
+      <script>
 //Ajax to add browsing history
-var historyData = 'game_id=<?php echo $gameCode; ?>&user_id=<?php echo $_SESSION['email']; ?>';
+var historyData = 'game_id=<?php echo $gameCode; ?>&user_id=<?php echo $_SESSION['email']; ?>&rate=<?php echo $commentCount; ?>';
+alert(historyData);
 $.ajax({
-   type : "POST",
-   url : "addBrowsingHistory.php",
-   data: historyData,
-   success:function(data){
-     window.alert(data);
-   }
- });
+ type : "POST",
+ url : "addBrowsingHistory.php",
+ data: historyData,
+ success:function(data){
+   window.alert(data);
+ }
+});
 </script>
+
+
+
+<!-- Watchlist Code -->
+<script>
+$('#addingButton').click(function(event) {
+  event.preventDefault();
+  var addWatchList = "game_id=<?php echo $gameCode ?>&user_id=<?php echo $_SESSION['email']; ?>";
+
+  alert();
+  $.ajax({
+    type: "POST",
+    url: "addingWatchList.php",
+    data: addWatchList,
+    success:function(data) {
+      window.alert(data);
+    }
+  });
+});
+
+
+</script>
+<!-- End -->
 
 <?php
 }
 ?>
+
 
 <script>
 $(function(){

@@ -226,6 +226,37 @@
 	</div>
 
 	</div>
+
+	<!-- Watchlist Code -->
+		Watchlist:
+		<br>
+		<?php
+		$user_id = $_SESSION["user_id"];
+		$query = "SELECT * FROM User_Watchlists JOIN games on games.FIELD1 = User_Watchlists.game_id WHERE user_id = '{$user}'";
+		$connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+
+		$result = $connection -> query($query);
+
+		while ($row = @mysqli_fetch_assoc($result)) {
+			$user_id = $row["user_id"];
+			$game_id = $row["game_id"];
+					// echo "game_id:";
+			echo '<div class="gameNames">' . $row["title"] . '</div>';
+			echo $user_id;
+			echo "<br>";
+			echo '<a href="gameSpecific.php?gameCode=' . $game_id . '">';
+			echo $game_id;
+
+			echo '<div class="gameImages" style="background-image:url(' . $row["images"] . ')"></div>';
+			echo "<br>";
+			echo "</a>";
+			echo "<br> <br>";
+
+		}
+		?>
+		<!-- End -->
+
+
 </div>
 
 
