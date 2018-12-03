@@ -187,6 +187,10 @@ input[type="submit"] {
   border-radius: 0.2em;
 }
 
+#keywordSearch:focus {
+  outline: none;
+}
+
 a {
   /* color: rgba(200, 200, 255, 0.5); */
 }
@@ -245,6 +249,11 @@ a:hover {
   height: 10em;
   background-size: 100%;
   background-repeat: no-repeat;
+  transition: all 0.25s ease-in-out;
+}
+
+.gameImages:hover {
+  transform: scale(1.1, 1.1);
 }
 
 .gameGenre {
