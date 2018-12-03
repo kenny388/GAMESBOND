@@ -27,7 +27,7 @@
         ?>
       </div>
         <div class="secondaryNavElement">
-                        <a>ACTIVITY</a>
+          <a href="subscription.php">SUBSCRIPTION</a>
           </div>
           <?php
           if (isset($_SESSION['loggedIn'])) {
